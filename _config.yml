@@ -1,5 +1,5 @@
 permalink: /:year:month:day/:title
-url: Will Power#Your url here
+url: will_power#Your url here
 baseurl: /project
 
 # variables
