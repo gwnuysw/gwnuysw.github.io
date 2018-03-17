@@ -1,7 +1,7 @@
 ---
 layout: default
-title: "Lorem Ipsum"
-tags: programming_languistics tag2 tag3 tag4
+title: "programming_languastics"
+tags: programming_languistics
 ---
 
 ## pm
