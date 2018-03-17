@@ -33,9 +33,6 @@ GEM
       sass (~> 3.4)
     jekyll-seo-tag (2.4.0)
       jekyll (~> 3.3)
-    jekyll-theme-windows95 (0.5.0)
-      jekyll (~> 3.7)
-      rouge (~> 3.1)
     jekyll-watch (2.0.0)
       listen (~> 3.0)
     kramdown (1.16.2)
@@ -70,7 +67,6 @@ PLATFORMS
 DEPENDENCIES
   jekyll (~> 3.7.3)
   jekyll-feed (~> 0.6)
-  jekyll-theme-windows95
   minima (~> 2.0)
   tzinfo-data
 
