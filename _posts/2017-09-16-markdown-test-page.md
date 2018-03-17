@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Markdown Test Page"
-tags: program_languistics
+tags: programming_languistics
 ---
 
 ## Source: [Markdown Test Page](https://github.com/fullpipe/markdown-test-page)
