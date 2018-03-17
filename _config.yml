@@ -19,6 +19,7 @@ sass:
 
 # Markdown
 markdown: kramdown
+remote_theme: jekyll-theme-windows95
 kramdown:
   input: GFM
   syntax_highlighter_opts:
