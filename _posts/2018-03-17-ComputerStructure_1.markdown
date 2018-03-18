@@ -3,7 +3,6 @@ layout: post
 title:  "컴퓨터 구조 일擊"
 date:   2018-03-17 21:44:00 +0900
 categories: jekyll update
-author: 20141640 이석원
 ---
 
 ### computer abstractions & technology
