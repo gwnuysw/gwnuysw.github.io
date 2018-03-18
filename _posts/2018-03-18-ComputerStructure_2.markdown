@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "컴퓨터 구조 2擊"
-date:   2018-03-18 22:28:00 +0900
+date:   2018-03-16 22:28:00 +0900
 categories: jekyll update
 ---
 # Performance
