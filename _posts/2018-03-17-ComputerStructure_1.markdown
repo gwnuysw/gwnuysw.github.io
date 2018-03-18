@@ -20,7 +20,7 @@ categories: jekyll update
 어셈블리어 마저 사고의 한계가 있어서 사람들은 고 수준 언어를 만들었습니다. 고 수준 언어는 컴파일러가 어셈블리어로 번역 합니다. 고 수준 언어는 몇 가지 중요한 장점이 있습니다.
 
 1. 자연어와 유사합니다.
-2. 프로그래머의 생산겅을 높여 줍니다.
+2. 프로그래머의 생산성을 높여 줍니다.
 3. 프로그램을 개발한 기종과 상관없이 어느 컴퓨터에서든 실행이 가능합니다.
 
 ### Performance
@@ -36,11 +36,11 @@ total time required for the computer to complete a task
 퍼포먼스는 실행 시간과 반비례합니다.
 #### 성능의 측정
 
-###### 1. cpu time
+1. cpu time
 ```
 cpu time = user time + system time
 ```
-###### 2. wall-clock time
+2. wall-clock time
 벽시계 시간, 응답시간, 경과시간 이라고 부르며 이것은 한 작업을 끝내는데 필요한 전체시간을 뜻하는 것으로 디스크 접근, 메모리 접근, 입출력 작업, 운영체제 오버헤드 등 모든 시간을 다 더한 것이다. cpu time 보다 정확 하다
 ```
 start = timestamp();
