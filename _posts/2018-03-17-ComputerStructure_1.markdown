@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "컴퓨터 구조 일격"
+title:  "컴퓨터 구조 일擊"
 date:   2018-03-16 21:44:00 +0900
 categories: jekyll update
 ---
