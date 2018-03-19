@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "컴퓨터 구조 1"
+title:  "컴퓨터 구조 소개"
 date:   2018-03-17 21:44:00 +0900
 categories: jekyll update
 ---
