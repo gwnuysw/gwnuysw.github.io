@@ -37,9 +37,66 @@ categories: jekyll update
     * 멀티캐스트 주소
 
       224.0.0.0/4는 멀티캐스트 주소로 예약된 블록이다.
-  * 네트워크 주소 변환(NAT)
+
+* 네트워크 주소 변환(NAT)
 
     사설IP주소와 공인IP주간 매핑 기능, 네트워크 외부와 통신 할때 공인 IP는 하나만 필요하다. 네트워크 내의 노드를 식별하기 위해 포트 번호를 사용한다.
 
     <a href="https://www.youtube.com/watch?v=QBqPzHEDzvo
-" target="_blank"> NAT youtube animation </a>
+" target="_blank_"> NAT youtube animation </a>
+
+* 동적 호스트 구성 DHCP 메시지 형식
+
+  UDP
+
+
+  |   1. DHCPDISCOVER       |client->server|
+  |:----------:|:-------:|:-----:|
+  |transaction ID| 1001 |교환 정보|
+  |Lease time||IP 할당 시간|
+  |client IP| | |
+  |Your IP||서버로부터 제안된 주소|
+  |serve IP| | 서버 IP|
+  |Sourve port : 68| Destination port : 67||
+  |Source IP|0.0.0.0|아직 할당 받지 않았다. 자기자신|
+  |Destination IP|255.255.255.255|브로드 캐스트|
+
+  |   2. DHCPOFFER       |server->client|
+  |:----------:|:-------:|:-----:|
+  |transaction ID| 1001 |교환 정보|
+  |Lease time|3600|IP 할당 시간|
+  |client IP| | |
+  |Your IP|12.13.14.15|서버로부터 제안된 주소|
+  |serve IP|12.13.14.0 | 서버 IP|
+  |**Sourve port : 68**| **Destination port : 67** ||
+  |Source IP|12.13.14.0|서버주소|
+  |Destination IP|255.255.255.255|브로드 캐스트|
+
+
+  |   3. DHCPREQUEST       |client->server|
+  |:----------:|:-------:|:-----:|
+  |transaction ID| 1001 |교환 정보|
+  |Lease time|3600|IP 할당 시간|
+  |client IP|12.13.14.15 | 사용하겠다. |
+  |Your IP|||
+  |serve IP|12.13.14.0 | 서버 IP|
+  |**Sourve port : 68**| **Destination port : 67** ||
+  |Source IP|12.13.14.15||
+  |Destination IP|255.255.255.255|DHCP서버가 여러대 일수 있기 때문에 브로드 캐스트|
+
+  |   4. DHCPACK       |server->client|
+  |:----------:|:-------:|:-----:|
+  |transaction ID| 1001 |교환 정보|
+  |Lease time|3600|IP 할당 시간|
+  |client IP| |  |
+  |Your IP|12.13.14.15||
+  |serve IP|12.13.14.0 | 서버 IP|
+  |**Sourve port : 68**| **Destination port : 67** ||
+  |Source IP|12.13.14.0||
+  |Destination IP|255.255.255.255|DHCP서버가 여러대 일수 있기 때문에 브로드 캐스트|
+
+  * IP패킷 포워딩
+
+    * 목적지 주소에 기반을 둔 포워딩
+
+      라우팅테이블의 크기를 줄이기위해, 검색 시간을 줄인다, 메모리양을 줄인다. prefix가 큰거부터 포워딩 테이블에 채워 나간다.
