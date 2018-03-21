@@ -23,6 +23,40 @@ categories: jekyll update
 
   * register
 
-    32개의 32 비트 레지스터가 있다. `$S0~$S7 : saved rigister, $t0~$t9: temporary register`
+    32개의 32 비트 레지스터가 있다.`$S0~$S7 : saved rigister, $t0~$t9: temporary register`
+    ```
+    e.g
+    f = (g+h)-(i+j);
+    // f:$S0, g:$S1, h:$S2, i:$S3, j:$S4
+    add $t0, $S1, $S2
+    add $t1, $S3, $S4
+    sub $S0, $t0, $t1
+    ```
+    > C언어 에서 레지스터 선언 `register int j;` 은 j의 주소를 알 수 없다.
   * constants
+
+    ```
+    $3에 상수 4를 더하는 코드
+    lw $t0, addrConst4($S1)
+    add $S3, $S3, $t0
+    lw를 사용하지 않는 코드
+    addi $S3, $S3, 4
+    ```
   * memory
+
+    2^30 memory words `memory[0], memory[4],memory[8]...memory[2^30*4-4]`
+
+    ```
+    eg1
+    g=h+a[8]
+    //g:$S1, h:$S2, A:$S3(base)
+    lw $t0, 32($S3)
+    add $S1, $S2, $t0
+    eg2
+    a[12]=h+a[8]
+    //a:$S3, h:$S2
+    lw $t0, 32($S3)
+    add $t0, $S2, $t0
+    sw $t0, 48($S3)
+    ```
+    > 배열의 이름은 배열의 시작 주소이며, base address라고도 한다.
