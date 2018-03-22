@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "컴퓨터 구조 명령"
+title:  "컴퓨터 구조 명령어"
 date:   2018-03-20 23:16:00 +0900
 categories: jekyll update
 ---
