@@ -19,8 +19,9 @@ register - number Mapping rule
 operation table
 
 |add|sub|addi|lw|sw|
-|:---:|:----:|:----:|:---:|
+|:---:|:----:|:----:|:---:|:---:|
 |0|0|8|35|43|
+
 #### register type
 
 |op|rs|rt|rd|shamt|funct|
