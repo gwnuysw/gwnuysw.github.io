@@ -22,6 +22,15 @@ operation table
 |:---:|:----:|:----:|:---:|:---:|
 |0|0|8|35|43|
 
+MIPS 명령어 인코딩
+
+|instruction|format|op|rs|rt|rd|shamt|funct|address|
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+|add|R|0|reg|reg|reg|0|32|NA|
+|sub|R|0|reg|reg|reg|0|34|NA|
+|addi|I|8|reg|reg|NA|NA|NA|constant|
+|lw(load word)|I|35|reg|reg|NA|NA|NA|address|
+|sw(store word)|I|43|reg|reg|NA|NA|NA|address|
 #### register type
 
 |op|rs|rt|rd|shamt|funct|
@@ -35,3 +44,9 @@ operation table
 |:---:|:---:|:---:|:---:|
 |6bits|5bits|5bits|16bits|
 |연산자|source|목적지|상수or주소|
+
+연습 문제
+
+1. `add $t1, $S2, $S3` -> 0(6), 18(5), 19(5), 9(5), 0(5), 32(6)
+2. `sub $S1, $S2, $S3` -> 0(6), 18(5), 19(5), 17(5), 0(5), 34(6)
+3. `lw $S1, 8($S3)` ->  35(6), 19(5), 17(5), 8(16)
