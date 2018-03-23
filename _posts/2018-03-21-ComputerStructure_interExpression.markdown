@@ -16,12 +16,6 @@ register - number Mapping rule
 |:---:|:----:|:----:|:---:|:---:|:---:|:----:|
 |8|9|10|11|12|13|14|15|
 
-operation table
-
-|add|sub|addi|lw|sw|
-|:---:|:----:|:----:|:---:|:---:|
-|0|0|8|35|43|
-
 MIPS 명령어 인코딩
 
 |instruction|format|op|rs|rt|rd|shamt|funct|address|
