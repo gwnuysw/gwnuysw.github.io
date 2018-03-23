@@ -18,6 +18,7 @@ register - number Mapping rule
 
 MIPS 명령어 인코딩
 
+
 |instruction|format|op|rs|rt|rd|shamt|funct|address|
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 |add|R|0|reg|reg|reg|0|32|NA|
@@ -25,6 +26,7 @@ MIPS 명령어 인코딩
 |addi|I|8|reg|reg|NA|NA|NA|constant|
 |lw(load word)|I|35|reg|reg|NA|NA|NA|address|
 |sw(store word)|I|43|reg|reg|NA|NA|NA|address|
+
 #### register type
 
 |op|rs|rt|rd|shamt|funct|
