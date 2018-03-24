@@ -3,6 +3,7 @@ layout: post
 title:  "컴퓨터 구조 부호 있는 수와 없는 수"
 date:   2018-03-21 21:59:00 +0900
 categories: jekyll update
+comments: true
 ---
 ### Signed and unsigned numbers
 #### Unsigned

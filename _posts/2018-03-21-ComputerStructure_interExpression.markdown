@@ -3,6 +3,7 @@ layout: post
 title:  "컴퓨터 구조 명령어의 컴퓨터 내부 표현"
 date:   2018-03-21 22:59:00 +0900
 categories: jekyll update
+comments: true
 ---
 
 ### 명령어의 컴퓨터 내부 표현

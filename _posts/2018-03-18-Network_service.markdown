@@ -3,6 +3,7 @@ layout: post
 title:  "네트워크 서비스"
 date:   2018-03-18 19:20:00 +0900
 categories: jekyll update
+comments: true
 ---
 ### 네트워크층 서비스
 
