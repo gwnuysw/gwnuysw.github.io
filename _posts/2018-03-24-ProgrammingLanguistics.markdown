@@ -26,7 +26,7 @@ comments: true
 
 * 파스 트리
 
-  ![parseTree](../_images/parseTree.png)
+  ![parseTree](https://raw.githubusercontent.com/gwnuysw/gwnuysw.github.io/master/_images/parseTree.png)
 
 * 터미널 노드, 리프, 단말 기호
 
@@ -38,13 +38,13 @@ comments: true
 
   각 비단말 기호가 어떠한 서브 노드를 어떤 순서로 가지는가를 규정하는 규칙의
   집합
-  ![grammar](../_images/grammar.png)
+  ![grammar](https://raw.githubusercontent.com/gwnuysw/gwnuysw.github.io/master/_images/grammar.png)
 
 * 생성 규칙
 
   앞의 문법으로 그릴 수 있는 파스 트리, 다음 문장들과 일치하는 네 가지 파스트리가 존재
 
-  ![Strings](../_images/fourString.png)
+  ![Strings](https://raw.githubusercontent.com/gwnuysw/gwnuysw.github.io/master/_images/fourString.png)
 
    문장을 생성하기 위해 문법을 이용하기 때문에, 문법 규칙을 생성 혹은 **생성 규칙** 이라고 한다.
 
@@ -87,13 +87,13 @@ Backus-Naur form 베커스 나우르 표기법은 **문맥 자유 문법(Context
 * 두개의 파스 트리가 존재
 
   **모호한 문법을 증명할 때는 반드시 파스 트리를 이용한다.**
-  ![ambiguous](../_images/amniguousGrammar.png)
+  ![ambiguous](https://raw.githubusercontent.com/gwnuysw/gwnuysw.github.io/master/_images/amniguousGrammar.png)
 
 * 모호한 문법의 해결
 
   연산자 우선순위와 연산자 결합의 개념으로 해결, 연산자들을 우선순위별로 나누어서 같은 우선순위를 가진 연산자들끼리 동일 레벨에서 처리, 새로운 비단말 기호 추가
 
-  ![fixambig](../_images/fixAmbig.png)
+  ![fixambig](https://raw.githubusercontent.com/gwnuysw/gwnuysw.github.io/master/_images/fixAmbig.png)
 
 ##### if-else dangle ambiguous
 
@@ -105,14 +105,14 @@ Backus-Naur form 베커스 나우르 표기법은 **문맥 자유 문법(Context
               if<cond_expr> then <stmt> else <stmt>
 <stmt> ::= <if-stmt>
 ```
-![ifambiguous](../_images/ifambiguous.png)
+![ifambiguous](https://raw.githubusercontent.com/gwnuysw/gwnuysw.github.io/master/_images/ifambiguous.png)
 
 * 문법 규칙의 수정
   * then 다음의 <stmt>와 else 다음의 <stmt>에 대한 구분이 없기 때문
   * else를 가장 최근의 if, 즉 가장 내부의 if와 대응되는 파싱만을 허용
   * <stmt>를 <matched>와 <unmatched>로 구분하고 then 다음에는 <matched>만이 나타나도록 정의
 
-![fixif](../_images/fixif.png)
+![fixif](https://raw.githubusercontent.com/gwnuysw/gwnuysw.github.io/master/_images/fixif.png)
 
 
 _모든 이미지는 동아 인쇄 출판사 '프로그래밍 언어론'에서 가져왔습니다._
