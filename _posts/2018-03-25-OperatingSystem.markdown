@@ -4,6 +4,7 @@ title:  "운영체제의 개념 및  변천과정"
 date:   2018-03-25 10:59:00 +0900
 categories: jekyll update
 comments: true
+google_analytics: UA-116276549-1
 ---
 # 운영 체제란?
 
