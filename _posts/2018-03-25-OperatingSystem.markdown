@@ -87,6 +87,7 @@ google_analytics: UA-116276549-1
     버스를 로컬 버스와 시스템 버스로 이원화시켜 처리기들이 로컬 메모리와 로컬 주변 장치는 로컬 버스로 접근하고, 공유 메모리만 시스템 버스를 통하여 접근하게 함으로써 버스 병목을 최소화 시킨다.
 
   * 다중 포트 메모리 버스(Multi-Port Memory Bus)
+  
     ![Multi-Port Memory Bus](http://images.kbench.com:8080/korean/mouse_potato/hw_lec/1999_09/image/3.gif)
 
     메모리에 접근포트를 여러개 두고, 각각 독립적으로 접근 가능
