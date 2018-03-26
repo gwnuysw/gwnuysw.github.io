@@ -94,7 +94,7 @@ main()
 
 _출처[<a href="http://www.science.unitn.it/~fiorella/guidelinux/tlk/node96.html">www.science.unitn.it/</a>]_
 
-## 대기 입출력(Blocking IO)과 비대기 입출력(Non-blocking IO)
+# 대기 입출력(Blocking IO)과 비대기 입출력(Non-blocking IO)
 
 입출력을 요청한 응용프로그램은 그 입출력이 진행되는 동안 대기상태로 전환돼 기다려야 한다.
 
@@ -108,6 +108,116 @@ _출처[<a href="http://www.science.unitn.it/~fiorella/guidelinux/tlk/node96.htm
 
   3. 요청 시점 현재 입력된 데이터가 전혀 없으면 데이터 없음 표시와 함께 그대로 리턴하여 프롯세스가 계속 진행하면서 대처하도록 한다. **(비대기 입력)**
 
-비대기 입력은 여러 장치로부터의 입력 데이터를 최대한 빨리 얻고자 할 때 활용된다.
+대부분의 운영체제는 기본으로 1.의 형태로 처리하고, 응용프로그램의 선택에따라 3.의 동작을 취할 수 있도록 설계된다. 비대기 입력은 여러 장치로부터의 입력 데이터를 최대한 빨리 얻고자 할 때 활용된다.
 
 * 출력 대기
+
+`n = write(fd, buf, size)`
+
+1. 최대 size 바이트이내에서 1바이트라도 출력이 이루어질 때까지 대기 시켰다가, 데이터 출력이 이루어지면 그 크기를 알려주고 실행을 재개하도록 한다.
+2. size바이트가 출력될 때까지 대기시켰다가. 그 결과를 알려주고 실행을 재개하도록 한다.
+3. 요청 시점 현재 출력이 불가능하면 출력 불가 표시와 함께 그대로 리턴하여 프롯세스가 계속 진행하면서 대처하도록 한다.
+
+출력도 대부분의 운영체제는 1.형대의 대기 출력을 기본을 한다. 만약 3.형태의 비대기 출력을 원한다면 fcntl(fd, ...)이나 ioctl(fd,...)등의 시스템 서비스를 통해서 운영체제에게 설정 변경을 요청해야 한다. 다만, 데이터 저장이 컴퓨터 내부에 이루어지는 경우에는 비대기 출력이 불가능 하다.
+
+# 입출력 장치 구동기(디바이스 드라이버)
+드바이스 드라이버란 입출력 장치의 인터페이스에 직접 접근하여 입출력을 진행하는 운영체제 코드의 한 부분이다. 입출력 장치의 인터페이스는 장치 제어기 회로와 연결되어 있는 **상태 레지스터(Status Register), 명령 레지스터(Command Register), 데이터 레지스터(Data Register)** 를 의미한다.
+
+주기억 장치와 입출력 장치 인터페이스에 접근하여 입출력을 진행하는 장치 구동기의 기본적인 동작 절차는 다음과 같다.
+
+* 동기 입력(디스크 등과 같이 데이터가 컴퓨터 내부에 저장되어 있는 경우)
+  * 상태 레지스터를 읽어서 'Idle'상태 인지 확인
+  * 명령 레지스터에 '읽기' 명령을 표시한 후, 상태 레지스터가 '입력 중(Busy)'으로 전환 되는지 확인
+  * 상태 레지스터에 입력이 완료되었음을 의미하는 '데이터 대기(Ready)'가 표시될 때까지 대기
+  * 데이터 레지스터 값을 읽어서 주기억 장치에 저장
+  * 원하는 크기만큼의 데이터를 읽을 때까지 위의 과정을 반복
+
+* 비동기 입력(키보드, LAN과 같이 데이터 입력을 예측할 수 없는 경우)
+  * 상태 레지스터를 읽어서 'Idle'이거나 '입력중(Busy)'상태이면 '데이터 대기(Ready)'가 표시될 때까지 대기
+  * 데이터 레지스터 값을 읽어서 주기억장치에 저장
+  * 원하는 만큼의 데이터를 읽을 때까지 위의 과정을 반복
+
+* 출력(출력은 항상 동기적)
+  * 상태 레지스터를 읽어서 'Idle'이거나 '입력중(Busy)'상태이면 '데이터 대기(Ready)'가 표시될 때까지 대기
+  * 주기억장치에서 데이터를 읽어서 데이터 레지스터에 저장
+  * 명령 레지스터에 '쓰기'명령을 표시한 후, 상태 레지스터가 '출력중(Busy)'으로 전환 되는지 확인
+  * 원하는 만큼의 데이터를 읽을 때까지 위의 과정을 반복
+
+## 프로그램 입출력(바쁜 대기 입출력 Busy waiting I/O)
+
+* 입력
+
+```
+# define STR (*(char *)0x80)//상태 레지스터
+# define DTR (*(char *)0x82)//데이터 레지스터
+# define CDR (*(char *)0x84)//명령 레지스터
+
+/*busy waiting synchronous INPUT*/
+read_char_bw(char *bp, int count) //bp는 버퍼주소 count는 읽을 개수
+{
+  int i;
+
+  for(i = 0; i < count; i++, bp++)
+  {
+    while(STR != IDLE)  //첫 번째로 IDLE상태 인지 확인한다.
+    ;
+    CDR = 1; //두 번째로 input Command
+    while(STR != READY) //세번 째로 데이터가 데이터 레지스터에 채워지고
+    ;       //데이터 레지스터가 채워 질때 까지 계속 상태를 확인한다. 이떄문에 바쁜 대기 입출력 이라고 한다.
+    *bp = DTR;//네 번째로 데이터 레지스터에 있는 정보를 가져간다.
+  }
+  return (i);
+}
+```
+* 출력
+
+```
+# define STR (*(char *)0x80)
+# define DTR (*(char *)0x82)
+# define CDR (*(char *)0x84)
+
+/*busy waiting synchronous OUTPUT*/
+write_char_bw(char *bp, int count)
+{
+  int i;
+
+  for(i = 0; i < count; i++, bp++)
+  {
+    while(STR != IDLE)
+    ;
+    DTR = *bp, bp++;
+    CDR = 2;  //output Command
+  }
+  return (i);
+}
+```
+## 인터럽트 기반 입출력(Interrupt-driven I/O)
+```
+# define STR (*(char *)0x80)
+# define DTR (*(char *)0x82)
+# define CDR (*(char *)0x84)
+
+static char *Bp;
+static int Nb Cb;
+/*Interrupt driven INPUT*/
+read_char_id(char *bp, int count)
+{
+  Bp = bp, Nb = count, Cb = 0;
+  while(STR != IDLE)// 상태를 계속 확인 한다.
+  ;
+  CDR = 1;//입력 명령을 내린다.
+  return(1);//그리고 함수를 반환해버린다!! 이부분이 busy waiting과 중요한 차이점 이다.
+}//busy waiting 은 데이터레지스터가 채워질때까지 상태레지스터를 계속 확인 한다.
+ISR(CHAR_RX_vect)//반대로 데이터 레지스터가 채워지면 인터럽트를 걸어서 데이터가 채워진것을 알려준다.
+{
+  *Bp = DTR, Bp++, Cb++;
+  if(Cb < Nb)
+  {
+    CDR = 1;//input Command
+  }
+  else
+  {
+    ...//schedule the process
+  }
+}
+```
