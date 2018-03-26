@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "운영체제 인터럽트, 이중 모드 연산"
+title:  "운영체제 인터럽트, 이중 모드 연산, 저장장치"
 date:   2018-03-25 20:08:00 +0900
 categories: jekyll update
 ---
@@ -109,4 +109,4 @@ CPU에 전달되는 사건 신호(Event Signal)로서 주로 전용 회선으로
 
 ![storage hirerachy](http://cfile24.uf.tistory.com/image/0329B639510AFA3B2252F4)
 
-cache는 메인 메모리의 1% 요량만 놔도 90 이상의 적중률을 보이는 것으로 알려져 있다.
+cache는 메인 메모리의 1% 요량만 놔도 90% 이상의 적중률을 보이는 것으로 알려져 있다.

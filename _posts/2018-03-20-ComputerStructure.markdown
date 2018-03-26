@@ -61,3 +61,10 @@ comments: true
     sw $t0, 48($S3)
     ```
     > 배열의 이름은 배열의 시작 주소이며, base address라고도 한다.
+
+#### Byte address Endian
+
+* Little Endian
+  배열의 앞쪽 정보가 메모리의 앞에서부터 채워지는 방식
+* Big Endian
+  배열의 뒤쪽 정보가 메모리의 앞에서 부터 채워지는 방식
