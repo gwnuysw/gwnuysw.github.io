@@ -8,10 +8,7 @@ comments: true
 ## 프로그래밍 언어의 처리
 ### 컴파일러
 
->컴파일러(compiler, 순화 용어: 해석기, 번역기)는 특정 프로그래밍 언어로 쓰여 있는 문서를 다른 프로그래밍 언어로 옮기는 프로그램을 말한다. _-출처 : 위키백과_
->
->어떤 프로그래밍 언어로 쓰여진 소스 파일을 다른 언어로 바꾸어주는 번역 프로그램.
-대부분 고수준 언어를 기계어로 번역하는 프로그램을 일컫지만 엄밀히는 어떤 언어 A를 B로 바꾸면 그게 컴파일러다. _-출처 : 나무위키_
+>A compiler is a special program that processes statements written in a particular programming language and turns them into machine language or "code" that a computer's processor uses. _출처[<a href="http://whatis.techtarget.com/definition/compiler" >techtarget</a>]_
 
 
 #### 컴파일러의 각 단계
