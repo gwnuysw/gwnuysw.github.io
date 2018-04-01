@@ -1,0 +1,116 @@
+---
+layout: post
+title:  "멀티미디어란?"
+date:   2018-04-01 10:20:00 +0900
+categories: jekyll update
+---
+# 멀티미디어란?
+
+>Multimedia is content that uses a combination of different content forms such as text, audio, images, animations, video and interactive content. _출처 : [위키백과](https://en.wikipedia.org/wiki/Multimedia)_
+
+* 멀티 모달리티(multimodality)
+>In its most basic sense, multimodality is a theory of communication and social semiotics. _출처-[위키백과](https://en.wikipedia.org/wiki/Multimodality)_
+
+* 멀티 채널
+
+  여러개의 경로, 사용자와 컴퓨터가 동시에 여러가지 경로로 대화 할 수 있는 상황
+
+## 멀티미디어 처리 기출 문제
+* 자료분량의 방대성
+* real-time processing요구
+* 다양한 매체간의 상호 동기화 문제
+* 복잡한 표준화에 대한 요구
+* 새로운 인터페이스 패러다임 요구
+
+## 멀티미디어와 하이퍼미디어
+
+* Hypertext
+
+ 편집자의 의도보다는 독자의 의도에 따라 문자를 읽는 순서가 결정되도록 구성된 문서
+* Hypermedia
+
+  Hypertext를 구성하는 각 페이지 혹은 정보의 묶음에 글자 매체 외에 그림이나 소리, 움직이는 화상들과 같은 다양하게 사용될 수 있는 문서
+
+# 미디어 저장 장치
+미디어 저장 장치는 별도의 대용량 저장 장치가 필수적이다.
+
+||CD-ROM|WORM|MOD|
+|---|---|---|---|
+|디스크 직경|5.25inch|5.25inch|3.5/5.25|
+|용량|600MB|600MB|128MB/600MB|
+|특징|소형 대용량 기록 불가능|소형 대용량 한번 기록가능|소형 대용량 기록 및 삭제가능|
+
+>CD는 약 74분 분량의 음악을 담을 수 있었는데, CD 표준을 정하는 데 있어서 몇 가지 일화가 뒤섞여 전해진다. 일단 처음에 필립스측은 기존 LP의 저장 능력보다 약간 향상된 수준인 60분 정도의 음악을 담을 수 있는 11.5cm 표준을 강하게 주장했다. 그러나 소니의 노리오 부회장이 12cm 표준을 강하게 주장했다. 필립스의 11.5cm와 소니의 12cm안이 한동안 타협안을 찾지 못했지만 결국 노리오 부회장이 강하게 주장한 12cm안이 채택되었다. 노리오 부회장이 12cm를 강력하게 밀어부친 이유는 음악 역사상 가장 유명한 명곡 가운데 하나인 베토벤 교향곡 9번을 한 장의 CD에 담기 위해서였다. _출처 : [나무위키](https://namu.wiki/w/%EC%BD%A4%ED%8C%A9%ED%8A%B8%20%EB%94%94%EC%8A%A4%ED%81%AC)_
+
+# 문자 데이터의 표현과 처리
+
+문자데이터의 표현과 압축
+
+* Font
+  * Bitmap Font
+    * 폰트 제작에 매우 많은 노동력 필요
+  * Vector Font
+    * 나타내려고 하는 문자의 윤곽선을 수학적 함수를 통햐여 표현함
+
+* 문서 포맷팅
+  * WYSIWYG 방식
+    * HWP, MS word, Mac의 나이서스
+  * MarkUp언어
+    * 문서의 내용을 화면에 표현하는 방식이나 그것들의 속성을 나타내기 위해 사용하는 일종의 명령어
+* 코드 체계
+  * 영문코드
+    * ASCII
+  * Unicode
+    * 전 세계의 모든 문자를 다루도록 설계된 표준 문자 전산 처리 방식.
+  * 한글 코드
+    * 완성형
+      * 한글 글자 각각에 코드를 부여하는 방식으로 2바이트로 구성됨
+    * 조합형
+      * 한글을 순서대로 정렬 처리할 때 장점이 있고 한글문자의 표현에 제약이 없음
+* 문자데이터 압축
+  * 문자 표현의 정보중복성
+    * 자주 나타나는 문자 또는 문자열들의 코드 길이를 짧게 함으로써 문자 데이터의 크기를 상당히 줄일 수 있다.
+  * 문자데이터 압축 기법
+    * 빈도수가 높은 문자는 4비트로 표현 나머지는 8비트로 표현
+    * 잘 쓰지 않는다.
+  * 자유로운 코드길이를 갖는 압축기법
+    * [Huffman coding](http://wooyaggo.tistory.com/95)
+
+# 사운드 데이터의 표현과 처리
+
+## 음향 신호의 변환
+
+* Sampling rate
+  * 단위 시간 당 신호를 획득하는 횟수
+  * 샘플수/초 또는 Hz/KHz 단위로 표현
+  * smpling rate이 높을수록 음질이 향상됨
+  * 아날로그 신호가 갖는 주파수의 빠르기 보다 2배 이상의 빠르기를 가지고 Sampling하면 원래 소리 신호와 거의 차이가 없는 소리정보를 얻을 수 있다.
+*  Resolution
+  * Sampling된 신호를 얼마나 정밀하게 표현하는가를 나타내는 척도
+  * 많이 분할할 수록 음질 향상
+  * 단위
+    * 8bit - 256단계
+    * 16bit - 65,656단계
+
+## 음향 신호의 표현
+
+  * PCM(Pulse Code Modulation)
+    * 소리의 파형을 특정한 주파수로 Sampling한 후 신호의 크기를 ADC로 변환하여 바로 메모리에 저장함
+    * 장점
+      * 신호의 합성과정이 간편하고 음질이 뛰어남.
+    * 단점
+      * Sampling frequency와 Resolution이 높을 수록 저장 공간을 많이 차지
+  * DPCM(differential PCM)방식
+    * 현재 신호와 이전 신호를 비교하여 두 신호의 증감분 만을 기록하는 방식
+    * 만약 10 이상 차이난다면 데이터가 의도치않게 변형 되므로 최대차이가 7이하일때만 사용한다.
+## 음향 파일 포맷
+
+* Self-describing 포맷
+  * 장치와 encoding에 관계되는 파라미터를 헤더에 명시 가능
+  * 헤더 필드에 샘플링 장치의 파라미터와 샘플 데이터의 저장 형태 등이 포함됨
+* Raw포맷
+  * 파라미터가 고정됨
+* Wav 포맷
+  * [파일 포맷](https://namu.wiki/w/WAV#toc)
+
+## [MIDI](https://namu.wiki/w/MIDI)
