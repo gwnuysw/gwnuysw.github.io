@@ -26,6 +26,26 @@ normalized number : `1.xxx * 2^yyy`
 * single precision
 
   `bias = 127`
+  ```
+  -0.75----dec = -11 * 2^(-2)----binary
+
+  -1.1 * 2^(-1)
+
+  S : 1, fraction : 10000...0(23bits), exponent : -1 + 127 = 0111 1110
+
+  1 | 0111 1110 | 1000...00 (23bits)|
+  ```
 * double precision
 
   `bias = 1024`
+  ```
+  -0.75
+
+  S : 1, fraction : 0111...1110 (52bits), exponent : 011 1111 1110
+  ```
+
+```
+1|1000 0001|0100...0| ---- single precision
+
+-1.01 * 2^2
+```
