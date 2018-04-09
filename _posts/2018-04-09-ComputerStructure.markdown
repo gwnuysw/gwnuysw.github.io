@@ -20,10 +20,12 @@ normalized number : `1.xxx * 2^yyy`
 
 ```
 (-1)^S * (1 + fraction) * 2^(exponent - bias)
-bias = 127
 ```
 ![IEEE 754](http://cssimplified.com/wp-content/uploads/2014/09/precision.jpg)
 
 * single precision
 
+  `bias = 127`
 * double precision
+
+  `bias = 1024`
