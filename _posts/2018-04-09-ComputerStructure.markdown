@@ -41,7 +41,7 @@ normalized number : `1.xxx * 2^yyy`
   ```
   -0.75
 
-  S : 1, fraction : 0111...1110 (52bits), exponent : 011 1111 1110
+  S : 1, fraction : 1000...000 (52bits), exponent : 011 1111 1110
   ```
 
 ```

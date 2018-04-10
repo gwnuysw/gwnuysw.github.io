@@ -44,6 +44,7 @@ main()
   exit(0);//해당 프로세스를 제거하고 그 결과를 wait에서 대기중인 부모 프로세스에게 알린다.
 }
 ```
+
 ---
 ### 프로세스간 통신(Inter-Process Communication : IPC)
 
