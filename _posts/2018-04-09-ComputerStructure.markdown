@@ -66,39 +66,22 @@ compare the exponents and shifts the smaller number to the right
 
 
 
-1. Check exponent
+1. Check exponent `-1.110 * 2^-2 = -0.11 * 2^-1`
 
-      `-1.110 * 2^-2 = -0.11 * 2^-1`
+2. Add `1.000 + (-0.111) * 2 ^ -1) = 0.001 * 2 ^ -1 = 1.000 * 2^-4`
+3. Check for overflow or underflow -4는 -126~127사이이기 때문에 exponent 표현이 가능합니다. no oveflow, underflow
 
-2. Add
-
-      `1.000 + (-0.111) * 2 ^ -1) = 0.001 * 2 ^ -1 = 1.000 * 2^-4`
-3. Check for overflow or underflow
-
-      -4는 -126~127사이이기 때문에 exponent 표현이 가능합니다.
-      no oveflow, underflow
-
-4. Check 4 bit precision
-
-      `1.000 * 2 ^ -4`
+4. Check 4 bit precision `1.000 * 2 ^ -4`
 
 ---
 ### exponent of the product : adding the components
 
 `(1.000 * 2 ^ -1) * (-1.110 * 2 ^ -2)`
 
-1. add exponents
+1. add exponents `-1 + (-2) = -3`
 
-      `-1 + (-2) = -3`
+2. product `1.000 * 1.110 = 1.110000`
 
-2. product
+3. Check for overflow or underflow `-3은 -126 ~ 127사이 입니다.`
 
-      `1.000 * 1.110 = 1.110000`
-
-3. Check for overflow or underflow
-
-      -3은 -126 ~ 127사이 입니다.
-
-4. Check sign 4bit precision
-
-      `1.110 * 2 ^ -3`
+4. Check sign 4bit precision `1.110 * 2 ^ -3`
