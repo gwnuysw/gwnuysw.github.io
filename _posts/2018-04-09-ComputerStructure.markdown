@@ -49,3 +49,56 @@ normalized number : `1.xxx * 2^yyy`
 
 -1.01 * 2^2
 ```
+
+---
+### Floating point Addition
+
+compare the exponents and shifts the smaller number to the right
+
+```
+0.5 + (-0.4375)?---(decimal)
+
+0.5 = 1.000 * 2^-1
+
+-0.4375(10) = -7/16 (2)= -111 * 2^-4 = -1.110 * 2^-2
+
+```
+
+
+
+1. Check exponent
+
+  `-1.110 * 2^-2 = -0.11 * 2^-1`
+
+2. Add
+
+  `1.000 + (-0.111) * 2 ^ -1) = 0.001 * 2 ^ -1 = 1.000 * 2^-4`
+3. Check for overflow or underflow
+
+  -4는 -126~127사이이기 때문에 exponent 표현이 가능합니다.
+  no oveflow, underflow
+
+4. Check 4 bit precision
+
+  `1.000 * 2 ^ -4`
+
+---
+### exponent of the product : adding the components
+
+`(1.000 * 2 ^ -1) * (-1.110 * 2 ^ -2)`
+
+1. add exponents
+
+  `-1 + (-2) = -3`
+
+2. product
+
+  `1.000 * 1.110 = 1.110000`
+
+3. Check for overflow or underflow
+
+  -3은 -126 ~ 127사이 입니다.
+
+4. Check sign 4bit precision
+
+  `1.110 * 2 ^ -3`
