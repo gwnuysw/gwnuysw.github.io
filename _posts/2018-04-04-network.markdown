@@ -44,3 +44,40 @@ IPv6도 계층적 주소체계를 사용하기 때문에 슬래시 표기법과 
 |1111 110|FC00::/7|Unique local unicast (사설 서버주소)|1/128|
 |1111 1110 10|FE08::/10|Link local addresses(사설 호스트 주소)|1/1024|
 |1111 1111|FF00::/8|Multicast addresses|1/256|
+
+---
+### 글로벌 유니 캐스트 주소
+
+![global unicast](https://qph.fs.quoracdn.net/main-qimg-2bd26557c421c118a9604ab979650e09)_source:[quora](https://www.quora.com/What-is-the-range-of-global-unicast-address-in-ipv6)_
+
+mac주소를 이용해서 interface ID를 설정한다.
+
+---
+### 자동 구성
+
+IPv6에서 호스트가 네트워크에 연결되면, 다음 절차를 걸처서 자동 구성 된다.
+
+1. link local address를 생성한하고, 인터페이스 카드로 부터 64bits 인터페이스 식별자를 추가한다.
+2. Neighbor solicitation message를 전송하여 생성한 주소가 유일한지 확인한다.
+3. 유일성이 통과 되더라도  link local address는 아직 사설 IP주소라서 글로벌 라우팅 프리픽스와 서브넷 식별자를 받아온다.
+
+---
+### IPv6 포로토콜
+
+* 확장 허용
+
+  IPv4에서 헤더필드가 있는 이유는 옵션 필드가 있기 때문이다. 그러나 헤더필드에서 옵션을 확인하는 것 자체가 비효율적이어서 삭제하고 대신에 추가되는 기능이 있으면 또다른 헤더를 추가한다.
+
+* Path MTU discovery technique
+
+  라우터에서 단편화를 하는게 아니라 목적지까지의 MTU를 미리 확인하여 sender에서 단편화를 하고 패킷을 전송한다. 따라서 라우팅 처리 시간이 줄어든다.
+
+* Checksum 삭제
+
+  다른 계층도 오류검출과 정정을 하기 때문에 빼버렸다.
+
+![datagram](http://cfs5.tistory.com/upload_control/download.blog?fhandle=YmxvZzE1NDc3OEBmczUudGlzdG9yeS5jb206L2F0dGFjaC8wLzA5MDAwMDAwMDAwNy5qcGc%3D)
+
+* flow label
+
+  같은 자원, 같은 경로, 같은 종류의 보안을 패킷마다 사용할때, 실시간 오디오, 비디오 전송을 할 때 쓴다.
