@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "프로스래밍 언어론 변수와 상수"
+title:  "프로그래밍 언어론 변수와 상수"
 date:   2018-04-04 22:08:00 +0900
 categories: jekyll update
 ---

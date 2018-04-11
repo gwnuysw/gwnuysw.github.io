@@ -1,0 +1,47 @@
+---
+layout: post
+title:  "네트워크 전송층"
+date:   2018-04-11 17:17:00 +0900
+categories: jekyll update
+---
+
+---
+### 전송층
+전송층을 한 마디로 정의한다면 프로세스 대 프로세스 통신 이라고 할 수 있다.
+
+---
+### 전송층 주소 : 포트 번호
+
+프로세스를 정의 하기 위해, 포트 번호라 부르는 두 번째 식별자가 필요하다.
+클라이언트 프로그램은 **임시 포트 번호(ephemeral port number)** 라 부르는 포트 번호를 스스로 정하고, 서버 프로그램은 **well known port number** 라 부르는 포트 번호를 사용한다.
+well know port number는 ICANN에서 관리한다.
+
+---
+### 흐름 제어
+
+메시지 소비속도가 느리다면 그 속도에 맞춰 줘야한다.
+
+![flow control](http://img1.daumcdn.net/thumb/R1920x0/?fname=http%3A%2F%2Fcfile10.uf.tistory.com%2Fimage%2F2618354D58DB22202C5EB2)
+
+---
+### 오류 제어
+
+1. 훼손된 패킷의 감지 및 폐기
+2. 손실되거나 제거된 패킷을 추적하고 재전송
+3. 중복 수신 패킷을 확인하고 폐기
+4. 분실된 패킷이 도착할 때까지 순서에 어긋나게 들어온 패킷을 버퍼에 저장
+
+
+* 순서 번호
+
+  패킷을 중복해서 받거나, 뒤섞였을 때 이용한다. 예를 들어 순서번호 m비트가 설정 되있다면 순서번호는 (0 ~ 2^m - 1)값을 갖는다.
+* 확인 응답
+
+  오류 제어를 위하여 긍정과 부정 신호 모두를 사용할 수 있다. ACK마저도 문제가 생길 경우를 대비해서 송신측에 timer를 설정한다.
+
+---
+### 슬라이딩 윈도
+
+순서 번호를 이용한 오류 제어와 함께 버퍼를 이용한 흐름 제어를 동시에 수행 한다.
+
+![sliding window](https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Sliding_Window.svg/640px-Sliding_Window.svg.png)_source:[wikipedia](https://en.wikipedia.org/wiki/Sliding_window_protocol)

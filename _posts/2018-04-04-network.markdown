@@ -81,3 +81,23 @@ IPv6에서 호스트가 네트워크에 연결되면, 다음 절차를 걸처서
 * flow label
 
   같은 자원, 같은 경로, 같은 종류의 보안을 패킷마다 사용할때, 실시간 오디오, 비디오 전송을 할 때 쓴다.
+
+---
+### ICMPv6 프로토콜
+
+IPv4에서 사용하던 IGMP, ICMP, ARP 기능이 IPv6에서는 모두 ICMPv6에 합쳐졌다.
+
+---
+### IPv4에서 IPv6로 변환
+
+* 이중 스택
+
+  컴퓨터가 IPv4와 IPv6를 동시에 지원해서 IPv4와 통신 할때 IPv4를 tkdydgkrh IPv6와 통신 할땐 IPv6를 사용
+
+* 터널링
+
+  ![tunnuling](https://www.cisco.com/c/dam/en/us/td/i/000001-100000/50001-55000/52501-53000/52685.ps/_jcr_content/renditions/52685.jpg)_source:[cisco](https://www.cisco.com/c/en/us/td/docs/ios-xml/ios/ipv6/configuration/xe-3s/ipv6-xe-36s-book/ip6-tunnel.html)_
+
+* 헤더 변환
+
+  송신자는 IPv6를 사용하지만 수신자는 IPv4를 사용할때 IPv6헤더를 IPv4헤더로 완전히 변환 한다.
