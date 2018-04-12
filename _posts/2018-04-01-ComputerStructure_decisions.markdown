@@ -9,10 +9,10 @@ categories: jekyll update
 ## - Conditional branch
 
 #### BEQ -- Branch on equal
-|Syntax:|beq $s, $t, offset |
-|---:|---|
-|Description:|Branches if the two registers are equal|
-|Operation:|if $s == $t advance_pc (offset << 2)); else advance_pc (4);|
+|Syntax|beq $s, $t, offset |
+|----:|----|
+|Description|Branches if the two registers are equal|
+|Operation|if $s == $t advance_pc (offset << 2)); else advance_pc (4);|
 
 #### BNE -- Branch on not equal
 |Syntax:|bne $s, $t, offset |
