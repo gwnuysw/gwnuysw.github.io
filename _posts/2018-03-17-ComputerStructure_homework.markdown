@@ -6,7 +6,6 @@ categories: jekyll update
 comments: true
 ---
 # Performance
-## 20141640 이석원
 **1.5** [4]<1.6> 동일한 명령어 집합을 가지고 있는 3개의 다른 프로세서 P1, p2, p3의 클럭 속도와 CPI가 다음과 같다.
 
 | 프로세서| 클럭 속도 | CPI  |
