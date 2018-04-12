@@ -8,9 +8,9 @@ categories: jekyll update
 
 ## - Conditional branch
 
-|fasdfa|fwagaew|fasdgasdf|
-|------|-------|---------|
-|dsgfasd|fdsfas|fsdgagdsf|
+|fasdfa|fwagaew|
+|------|-------|
+|dsgfasd|fdsfas|
 
 
 #### BEQ -- Branch on equal
