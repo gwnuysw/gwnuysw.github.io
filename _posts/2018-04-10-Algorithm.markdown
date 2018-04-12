@@ -129,3 +129,85 @@ a = b^c경우 : T(n) = O(n^c*logn)
 a > b^c경우 : T(n) = O(n^d), 여기서 d = logb(a)
 a < b^c경우 : T(n) = O(n^c)
 ```
+
+---
+### 이진 탐색
+
+* 복잡도 분석
+
+  `T(n) = T(n/2) + O(1)` 이진 탐색의 부문제는 한 개이다. 마스터 정리 a = 1, b = 2, c = 0이므로 a = b^c 인 경우이며 복잡도는 O(logn)이다.
+
+---
+### 최대값 찾기
+
+주어진 배열에서 최대값을 찾는 문제이다. 여기서 사용할 기본 아이디어는 이진탐색과 유사하다. 반으로 나눈 두 배열의 최대값은 다시 각각을 반으로 나눠 각각의 최대값 중 더 큰 값으로 하면 된다. 언제 까지 분할 할지는 설계자 몫이다.
+
+```
+int maximum_DC(int list[], int low, int high){
+  int middle, lmax, hmax;
+  if(low == high) return list[low]; //원소가 하나일 때
+  else if(low == high-1){ //원소가 두 개일 때
+    if(list[low] >= list[high]) return list[low];
+    else return list[high];
+  }
+
+  else{   //탈출 조건이 아닌 경우 분할, 결합을 수행한다.
+    middle = (low + high) / 2;  //분할
+    lmax = maximum_DC(list, low, middle);//부할
+    hmax = maximum_DC(list, middle+1, high);//분할
+    if(lmax >= hmax) return lmax;
+    else return hmax;
+  }
+}
+```
+
+시작하는 순서는 트리의 전위 순회를 따르고 종료하는 순서는 후위순회를 따른다.
+
+* 복잡도 분석
+
+  `T(n) = 2T(n/2) + O(1)` a = 2, b = 2, c = 0이므로 a > b^c 따라서 복잡도는 Θ(n)이다.
+
+---
+### 거듭제곱
+순환 알고리즘
+
+```
+              |---      1               (n = 0)
+power(x, n) = |
+              |---    x*power(x, n-1)   (n > 1)
+```
+
+```
+double iterative_power(double x, int n)
+{
+  int i;
+  double power = 1.0;
+  for(i = n; i > 0; i--) power *= x;
+  return power;
+}
+
+double recursive_power(double x, int n)
+{
+  if(n == 0) return 1;
+  else return x * recursive_power(x, n-1);
+}
+```
+분할 정복 알고리즘
+
+```
+              |----     1                       (n = 0)
+power(x, n) = |----     power(x^2, n/2)         (n is even)
+              |----     x*power(x^2,(n-1)/2)    (n is odd)
+```
+
+```
+double recursive_power_DC(double x, int n)
+{
+  if(n == 0) return 1;
+  else if((n%2) == 0) return recursive_power_DC(x*x, n/2);
+  else return x * recursive_power_DC(x * x, (n-1)/2);
+}
+```
+분할 정복 알고리즘의 부문제는 한 개이고 부문제의 크기는 n에서 n/2또는 (n-1)/2으로 대략 절반으로 줄어듦
+
+`T(n) = T(n/2) + O(1)` 마스터 정리 a = 1, b = 2, c = 0이므로 a = b^c T(n) = Θ(logn)
