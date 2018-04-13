@@ -23,28 +23,3 @@ comments: true
 1. 자연어와 유사합니다.
 2. 프로그래머의 생산성을 높여 줍니다.
 3. 프로그램을 개발한 기종과 상관없이 어느 컴퓨터에서든 실행이 가능합니다.
-
-### Performance
-
-speed - excution time (response time)
-total time required for the computer to complete a task
-
-> throughput (= bandwith) : the number of tasks completed per unit time
-
-```
-성능 = 1 / 실행 시간
-```
-퍼포먼스는 실행 시간과 반비례합니다.
-#### 성능의 측정
-
-1. cpu time
-```
-cpu time = user time + system time
-```
-2. wall-clock time
-벽시계 시간, 응답시간, 경과시간 이라고 부르며 이것은 한 작업을 끝내는데 필요한 전체시간을 뜻하는 것으로 디스크 접근, 메모리 접근, 입출력 작업, 운영체제 오버헤드 등 모든 시간을 다 더한 것이다. cpu time 보다 정확 하다
-```
-start = timestamp();
-end = timestamp();
-wall-clock time = end - start;
-```

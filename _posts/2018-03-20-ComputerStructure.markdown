@@ -18,13 +18,19 @@ comments: true
 
   * sony play station
 
-#### MIPS operand of the Computer hardware
+---
+### MIPS operand of the Computer hardware
 
 * operand
 
   * register
 
-    32개의 32 비트 레지스터가 있다.`$S0~$S7 : saved rigister, $t0~$t9: temporary register`
+    32개의 32 비트 레지스터가 있다.
+
+    `$S0~$S7 : saved rigister`
+
+    `$t0~$t9 : temporary register`
+
     ```
     e.g
     f = (g+h)-(i+j);

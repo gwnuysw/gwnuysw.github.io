@@ -8,16 +8,11 @@ categories: jekyll update
 
 ## - Conditional branch
 
-|fasdfa|fwagaew|
-|------|-------|
-|dsgfasd|fdsfas|
-
-
 #### BEQ -- Branch on equal
-|Syntax|beq $s, $t, offset |
+|Syntax|beq $s, $t, offset|
 |----:|----|
 |Description|Branches if the two registers are equal|
-|Operation|if $s == $t advance_pc (offset << 2)); else advance_pc (4);|
+|Operation|`if $s == $t advance_pc (offset << 2)); else advance_pc (4);`|
 
 #### BNE -- Branch on not equal
 |Syntax:|bne $s, $t, offset |
@@ -118,7 +113,7 @@ GO    addi $S4, $S4, 1
 EXIT  ~~~      
 ```
 
-<!--연습 문제
+
 1. $t1이 0x00101000이라고 할때 다음을 실행한 후 $t2는무엇인가?  $t2 = 3
 ```
       slt $t2, $0, $t0
@@ -138,4 +133,3 @@ LOOP  slt $t2, $0, $t1
       j LOOP
 DONE
 ```
--->
