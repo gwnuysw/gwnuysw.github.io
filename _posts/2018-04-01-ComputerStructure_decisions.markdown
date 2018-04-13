@@ -8,13 +8,15 @@ categories: jekyll update
 
 ## - Conditional branch
 
-#### BEQ -- Branch on equal
+### BEQ -- Branch on equal
+
 |Syntax|beq $s, $t, offset|
 |----:|----|
 |Description|Branches if the two registers are equal|
 |Operation|`if $s == $t advance_pc (offset << 2)); else advance_pc (4);`|
 
-#### BNE -- Branch on not equal
+### BNE -- Branch on not equal
+
 |Syntax:|bne $s, $t, offset |
 |------:|-------------------|
 |Description:|Branches if the two registers are not equal|
@@ -22,7 +24,8 @@ categories: jekyll update
 
 ## - Unconditional branch
 
-#### J -- Jump
+### J -- Jump
+
 |Syntax:|j target |
 |------:|---------|
 |Description:|Jumps to the calculated address|
@@ -63,22 +66,23 @@ EXIT    ~~~
 
 ## Comparison of two numbers
 
-#### SLT -- Set on less than (signed)
+### SLT -- Set on less than (signed)
 
 |Syntax:|slt $d, $s, $t |
 |------:|---------------|
 |Description:|If $s is less than $t, $d is set to one. It gets zero otherwise.|
 |Operation:|`if $s < $t $d = 1; advance_pc (4); else $d = 0; advance_pc (4);`|
 
-#### SLTIU -- Set on less than immediate unsigned
+### SLTIU -- Set on less than immediate unsigned
 
 |Syntax:|sltiu $t, $s, imm |
 |------:|------------------|
 |Description:|If $s is less than the unsigned immediate, $t is set to one. It gets zero otherwise.|
 |Operation:|`if $s < imm $t = 1; advance_pc (4); else $t = 0; advance_pc (4);`|
 
-#### SLTI -- Set on less than immediate (signed)
-|Syntax:|slti $t, $s, imm|
+### SLTI -- Set on less than immediate (signed)
+
+|Syntax:|slti $t, $s, imm |
 |------:|----------------|
 |Description:|If $s is less than immediate, $t is set to one. It gets zero otherwise.|
 |Operation:|`if $s < imm $t = 1; advance_pc (4); else $t = 0; advance_pc (4);`|

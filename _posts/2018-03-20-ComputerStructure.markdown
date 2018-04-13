@@ -40,6 +40,7 @@ comments: true
     sub $S0, $t0, $t1
     ```
     > C언어 에서 레지스터 선언 `register int j;` 은 j의 주소를 알 수 없다.
+    
   * constants
 
     ```
