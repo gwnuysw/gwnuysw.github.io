@@ -22,6 +22,7 @@ categories: jekyll update
 |Description:|Branches if the two registers are not equal|
 |Operation:|`if $s != $t advance_pc (offset << 2)); else advance_pc (4);`|
 
+---
 ## - Unconditional branch
 
 ### J -- Jump
@@ -64,6 +65,7 @@ Loop    sll $t0, $S3, 2
 EXIT    ~~~
 ```
 
+---
 ## Comparison of two numbers
 
 ### SLT -- Set on less than (signed)
@@ -117,7 +119,7 @@ GO    addi $S4, $S4, 1
 EXIT  ~~~      
 ```
 
-
+---
 1. $t1이 0x00101000이라고 할때 다음을 실행한 후 $t2는무엇인가?  $t2 = 3
 ```
       slt $t2, $0, $t0
@@ -136,4 +138,13 @@ LOOP  slt $t2, $0, $t1
       addi $S2, $S2, 2
       j LOOP
 DONE
+```
+3. 문제 2번 순환문에 해당하는 C코드 루틴을 작성하라. $s1, $s2, $t1, $t2는 각각 정수 A, B, i, temp이다.
+```
+i = A;
+while(0 < i)
+{
+  i -= 1;
+  B += 2;
+}
 ```

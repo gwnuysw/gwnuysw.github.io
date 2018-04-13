@@ -4,9 +4,9 @@ title:  "컴퓨터구조 subroutine procedure"
 date:   2018-04-02 21:50:00 +0900
 categories: jekyll update
 ---
-# 2.8 subroutine procedure
 
-## Allocating space : stack (LIFO)
+---
+### Allocating space : stack (LIFO)
 ![heap](https://courses.engr.illinois.edu/cs232/fa2011/lectures/lecture6/memory.jpg)
 
 * 최하위 주소 부분은 유보되어 있다.(reserved)
@@ -16,7 +16,8 @@ categories: jekyll update
 
 프로시저의 저장된 레지스터와 지역 변수를 가지고 있는 스택 영역을 activation record라 부른다.
 
-## Execution of a procedure
+---
+### Execution of a procedure
 
 1. put parameters($a0~$a3)
 2. transfer control(caller -> callee)
@@ -26,13 +27,15 @@ categories: jekyll update
 6. return control (callee -> caller)
 
 ```
+g : $a0, h : $a1, i : $a2, j : $a3, f : $s0,
 int proc(int g, int h, int i, int j)
 {
   int f;
   f = (g+h)-(i+j);
-  return f;
+  return f;   //return register $v0 ~ $v1
 }
-->jr $ra # jmp back to the caller
+->
+jr $ra # jmp back to the caller
 addi $sp, $sp, -12
 sw $t1, 8($sp)
 sw $t0, 4($sp)
@@ -47,11 +50,13 @@ lw $t1, 8($sp)
 addi $sp, $sp, 12
 ```
 
-## parallelism : synchronisation
+---
+### parallelism : synchronisation
 
 mutualexcusion - 상호배제 : lock & unlock(semaphore)신호등
 
-## Translating and starting a program
+---
+### Translating and starting a program
 
 1. C program
 2. Compiler
