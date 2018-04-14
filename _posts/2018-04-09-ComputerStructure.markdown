@@ -59,7 +59,6 @@ normalized number : `1.xxx * 2^yyy`
 0.5 = 1.000 * 2^-1
 
 -0.4375(10) = -7/16 (2)= -111 * 2^-4 = -1.110 * 2^-2
-
 ```
 
 1. compare the exponents and shifts the smaller number to the right `-1.110 * 2^-2 = -0.11 * 2^-1`
@@ -85,7 +84,7 @@ normalized number : `1.xxx * 2^yyy`
 ---
 ### exercise
 
-1. -1.25 single, double
+- -1.25 single, double
 
   ```
   -1.25 = -5/4 = -101/2^2 = -1.01 * 2^0
@@ -103,11 +102,11 @@ normalized number : `1.xxx * 2^yyy`
   fraction : 010100...0(52bits)
   ```
 
-2. 110000010010100...0 -> what number?(single)
+- 110000010010100...0 -> what number?(single)
 
   ```
   sign : 1
   exponent : 130-127 = 3
   fraction : 010100...0(23bits)
   ```
-3. 0.375 + 1.5 = ?
+- 0.375 + 1.5 = ?

@@ -4,8 +4,10 @@ title:  "컴퓨터구조 Instructions for making decisions"
 date:   2018-04-01 14:12:00 +0900
 categories: jekyll update
 ---
+
 # Instructions for making decisions
 
+---
 ## - Conditional branch
 
 ### BEQ -- Branch on equal
@@ -35,7 +37,7 @@ categories: jekyll update
 _출처 : [MIPS Instruction Reference](http://www.mrc.uidaho.edu/mrc/people/jff/digital/MIPSir.html)_
 
 ```
-(f, g, h, i  : $S0~$S4)
+(f, g, h, i, j  : $S0~$S4)
 
 if(i == j) f = g + h;
 else f = g - h;
@@ -129,7 +131,7 @@ ELSE  addi, $t2, $t2, 2
 DONE
 ```
 
-2. $t1은 10으로 초기화 되어있다. $S0가 처음에 0이었다면 실행 후 $S2의 값은 무엇인가? $S2 = 20
+2. $S1은 10으로 초기화 되어있다. $S0가 처음에 0이었다면 실행 후 $S2의 값은 무엇인가? $S2 = 20
 ```
       move $t1, $S1
 LOOP  slt $t2, $0, $t1

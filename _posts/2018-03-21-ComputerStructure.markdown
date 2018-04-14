@@ -25,5 +25,3 @@ comments: true
   ```
 
 #### convert binary into decimal
-
-설명이 필요 한가?

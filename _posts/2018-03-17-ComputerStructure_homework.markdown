@@ -5,6 +5,8 @@ date:   2018-03-17 22:28:00 +0900
 categories: jekyll update
 comments: true
 ---
+
+---
 ### Performance
 
 speed - excution time (response time)
@@ -51,7 +53,7 @@ wall-clock time = end - start;
 (CPU time) = 6 * 10^9 / 3GHz = 2sec
 ```
 
-computer A(2GHz) runs a program in 10secs computer B runs 1.2times as the program in 6 secouns what is the clock rate of computer B?
+computer A(2GHz) runs a program in 10secs computer B runs 1.2times as the program in 6 secounds what is the clock rate of computer B?
 
 ```
 10 = (cycle for a program) / 2GHz     -----computer A
@@ -60,22 +62,22 @@ computer A(2GHz) runs a program in 10secs computer B runs 1.2times as the progra
 ? = 4GHz
 ```
 ---
-### instruction Performance
-CPU:Clock cycle Per Instruction
+### Instruction Performance
+CPI:Clock cycle Per Instruction
 ```
 (CPU clock cycle)
 = (The number of Instruction for a program)
 * (Average clock cycles per instruction)
 ```
 
-|computer|clock cycle time|CPI|
+|computer|clock cycle time|CPI for a program|
 |:------:|:--------------:|---|
 |A|250ps|2.0|
 |B|500ps|1.2|
 
 How much is faster than B?
 ```
-(2.0 * 250ps) / (1.2 * 500ps) = 1.2(times)
+(1.2 * 250ps) / (2.0 * 500ps) = 1.2(times)
 ```
 
 compairs code segment in a computer
@@ -147,3 +149,4 @@ P2 CPI : 2 * 0.1 + 2 * 0.2 + 2 * 0.5 + 2 * 0.2 = 2.0
 P1 : 2.6 * 10e6 = 2.6e6
 P2 : 2.0 * 10e6 = 2.0e6
 ```
+P2가 P1 보다 약 1.56배 더 빠르다
