@@ -35,19 +35,24 @@ int proc(int g, int h, int i, int j)
   return f;   //return register $v0 ~ $v1
 }
 ->
-jr $ra # jmp back to the caller
-addi $sp, $sp, -12
-sw $t1, 8($sp)
-sw $t0, 4($sp)
-sw $t0, 0($sp)
-add $t0, $a0, $a1 # $t0 = g+h
-add $t1, $a2, $a3 # $t1 = i + j
-sub $s0, $t0, $t1 # f = (g+h) - (i+j)
-add $v0, $s0, $0
-lw $s0, 0($sp)
-lw $t0, 4($sp)
-lw $t1, 8($sp)
-addi $sp, $sp, 12
+jal Proc
+.
+.
+.
+Proc:
+        addi $sp, $sp, -12
+        sw $t1, 8($sp)
+        sw $t0, 4($sp)
+        sw $s0, 0($sp)
+        add $t0, $a0, $a1 # $t0 = g+h
+        add $t1, $a2, $a3 # $t1 = i + j
+        sub $s0, $t0, $t1 # f = (g+h) - (i+j)
+        add $v0, $s0, $0
+        lw $s0, 0($sp)
+        lw $t0, 4($sp)
+        lw $t1, 8($sp)
+        addi $sp, $sp, 12
+        jr $ra # jmp back to the caller
 ```
 
 ---
@@ -71,3 +76,11 @@ the library rountines are not linked and loaded until the program is run
 
 * 장점
   version update, small module
+
+---
+### Starting a Java program
+
+1. Java program
+2. Compiler
+3. class files(Java byte codes)
+4. JVM(Java virtual machine) : an interpreter to execute Java byte code

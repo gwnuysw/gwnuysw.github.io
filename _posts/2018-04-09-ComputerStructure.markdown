@@ -53,8 +53,6 @@ normalized number : `1.xxx * 2^yyy`
 ---
 ### Floating point Addition
 
-compare the exponents and shifts the smaller number to the right
-
 ```
 0.5 + (-0.4375)?---(decimal)
 
@@ -64,11 +62,9 @@ compare the exponents and shifts the smaller number to the right
 
 ```
 
+1. compare the exponents and shifts the smaller number to the right `-1.110 * 2^-2 = -0.11 * 2^-1`
 
-
-1. Check exponent `-1.110 * 2^-2 = -0.11 * 2^-1`
-
-2. Add `1.000 + (-0.111) * 2 ^ -1) = 0.001 * 2 ^ -1 = 1.000 * 2^-4`
+2. Add `(1.000 + (-0.111)) * 2 ^ -1 = 0.001 * 2 ^ -1 = 1.000 * 2^-4`
 3. Check for overflow or underflow -4는 -126~127사이이기 때문에 exponent 표현이 가능합니다. no oveflow, underflow
 
 4. Check 4 bit precision `1.000 * 2 ^ -4`
@@ -84,4 +80,34 @@ compare the exponents and shifts the smaller number to the right
 
 3. Check for overflow or underflow `-3은 -126 ~ 127사이 입니다.`
 
-4. Check sign 4bit precision `1.110 * 2 ^ -3`
+4. Check sign, 4bit precision `1.110 * 2 ^ -3`
+
+---
+### exercise
+
+1. -1.25 single, double
+
+  ```
+  -1.25 = -5/4 = -101/2^2 = -1.01 * 2^0
+
+  single
+  -------
+  S : 1
+  exponent : 0111 1111
+  fraction : 01000...000(23bits)
+
+  double
+  -------
+  S : 1
+  exponent : 130 - 127 = 3
+  fraction : 010100...0(52bits)
+  ```
+
+2. 110000010010100...0 -> what number?(single)
+
+  ```
+  sign : 1
+  exponent : 130-127 = 3
+  fraction : 010100...0(23bits)
+  ```
+3. 0.375 + 1.5 = ?

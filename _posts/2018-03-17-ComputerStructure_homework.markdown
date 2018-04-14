@@ -67,6 +67,7 @@ CPU:Clock cycle Per Instruction
 = (The number of Instruction for a program)
 * (Average clock cycles per instruction)
 ```
+
 |computer|clock cycle time|CPI|
 |:------:|:--------------:|---|
 |A|250ps|2.0|
