@@ -102,7 +102,7 @@ google_analytics: UA-116276549-1
 
     메모리에 접근포트를 여러개 두고, 각각 독립적으로 접근 가능
 
-  다중 처리기 시스템은 처리기들의 역할 분담 방식에 따라 크게 **대칭형 다중 처리기 시스템**(SMP: Symmetric Multi-Processor System)과 **비대칭 다중 처리기 시스템**(AMP: Asymmetric Multi-Processor System) 으로 분류할 수 있다.
+  다중 처리기 시스템은 처리기들의 역할 분담 방식에 따라 크게 CPU의 우위가 없는 **대칭형 다중 처리기 시스템**(SMP: Symmetric Multi-Processor System)과 CPU의 우위가 있는 **비대칭 다중 처리기 시스템**(AMP: Asymmetric Multi-Processor System) 으로 분류할 수 있다.
 
 * 분산 처리 시스템
 

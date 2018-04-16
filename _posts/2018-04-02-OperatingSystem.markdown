@@ -5,6 +5,7 @@ date:   2018-04-02 20:54:00 +0900
 categories: jekyll update
 ---
 
+---
 # 스레드란?
 
 ## 다중 스레드 프로세스(Multi-thread Process)
