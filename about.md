@@ -2,6 +2,7 @@
 layout: page
 title: About
 permalink: /about/
+comment: true
 ---
 
 강릉원주대학교 이석원의 공부방입니다. 모든 게시물은 수강한 강의를 토대로 작성 하였습니다.
