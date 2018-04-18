@@ -5,6 +5,5 @@ permalink: /about/
 comment: true
 ---
 
-강릉원주대학교 이석원의 공부방입니다. 모든 게시물은 수강한 강의를 토대로 작성 하였습니다.
-
-**"강물은 결코 바다로 가는것을 포기하지 않는다. 평지에서도 굽이쳐 흐를 때가 있을지라도 강물은 바다로 가는 것을 포기하지않는다." _-대한민국 대통령 中_**
+|<img src="https://raw.githubusercontent.com/gwnuysw/gwnuysw.github.io/master/_images/face.jpg" alt="Drawing" style="width: 100px; height: 120px"/>|이석원|24세|gwnu컴공|
+|:---:|:---:|:---:|:---:|
