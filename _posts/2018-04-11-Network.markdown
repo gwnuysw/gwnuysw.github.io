@@ -42,6 +42,6 @@ well know port number는 ICANN에서 관리한다.
 ---
 ### 슬라이딩 윈도
 
-순서 번호를 이용한 오류 제어와 함께 버퍼를 이용한 흐름 제어를 동시에 수행 한다.
+순서 번호를 이용한 오류 제어와 함께 버퍼를 이용한 흐름 제어를 동시에 수행 한다. 상대방으로 부터 응답을 받지 않은 상태에서 송신자가 보관하고 있는 패킷수를 **윈도우** 라고 한다.
 
 ![sliding window](https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Sliding_Window.svg/640px-Sliding_Window.svg.png)_source:[wikipedia](https://en.wikipedia.org/wiki/Sliding_window_protocol)_
