@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "알고리즘 divide and conquer"
+title:  "알고리즘 분할정복1"
 date:   2018-04-09 14:16:00 +0900
 categories: jekyll update
 ---
