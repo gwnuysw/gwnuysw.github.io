@@ -6,9 +6,8 @@ comment: true
 ---
 
 ---
-<img src="https://raw.githubusercontent.com/gwnuysw/gwnuysw.github.io/master/_images/face.jpg" alt="Drawing" style="width: 100px; height: 130px"/>
+강릉원주대학교 컴공과 이석원 24세
 
-
-이석원 24세
+변화가 필요한 때
 
 ---
