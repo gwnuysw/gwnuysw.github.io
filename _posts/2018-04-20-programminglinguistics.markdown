@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "프로그래밍 언어론 타입"
+title:  "프로그래밍 언어론 타입1"
 date:   2018-04-20 19:45:00 +0900
 categories: jekyll update
 ---
@@ -366,14 +366,14 @@ C99,C++,Ada95, Java, C#, Fortran 2003 등과 같은 다수의 현대 언어에�
 * java
 
 
-	문자열이 널문자로 끝나지 않는다. 별도로 문자열을 다루는 클래스인 String 클래스와 Stringbuffer클래스가 존재한다. 
+	문자열이 널문자로 끝나지 않는다. 별도로 문자열을 다루는 클래스인 String 클래스와 Stringbuffer클래스가 존재한다.
 * Ada
-	
+
 	문자열 타입에 관한 부분 문자열의 참조 연산자, 연결 연산자, 관계 연산자, 배정문이 제공된다. Name(2:5)는 Name의 두번째, 세번째, 네 번째, 다섯 번째 문자를 참조 한다.
 
 * Fortran77
 
-	문자열을 도입하였다 
+	문자열을 도입하였다
 	```
 	CHARACTER L*15, M*20 //각각 길이 15, 20의 문자열
 	CHARACTER(LEN=9) N	//N은 fortran90에서 길이가 9인 문자열로 사용
