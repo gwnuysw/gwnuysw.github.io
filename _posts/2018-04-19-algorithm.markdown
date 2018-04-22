@@ -8,18 +8,47 @@ categories: jekyll update
 ---
 ### 합병정렬
 
-"데이터 집합 두 개를 하나로 합치는 과정"을 하나의 데이터 집합이 남을 때까지 반복 단, 합병 대상의 데이터 집합이 미리 정렬되어 있어야 한다!
+"데이터 집합 두 개를 하나로 합치는 과정"을 하나의 데이터 집합이 남을 때까지 반복 단, 합병 대상의 데이터 집합이 미리 정복되어 있어야 한다!
 
 
 ![merge_sort](https://upload.wikimedia.org/wikipedia/commons/c/cc/Merge-sort-example-300px.gif)
 
+_source:[wikipedia](https://upload.wikimedia.org/wikipedia/commons/c/cc/Merge-sort-example-300px.gif)_
+
+```
+void merge_sort_DC(int list[], int low, int high)
+{
+  int middle;
+  if(low<high)
+  {
+    middle = (low + high)/2;
+    merge_sort_DC(list,low,middle);
+    merge_sort_DC(list,middle+1, high);
+    merge(list,low,middle,high);
+  }
+}
+
+void merge(int list[], int low, int mid, int high)
+{
+  int n1 = low, n2 = mid+1, s=low, sorted[MAX_SIZE], i;
+  while(n1 <= mid && n2 <= high)
+  {
+    if(list[n1] <= list[n2]) sorted[s++] = list[n1++];
+    else sorted[s++] = list[n2++];
+  }
+
+  if(n1 > mid)while(n2 <= high) sorted[s++] = list[n2++];
+  else while(n1<=mid)sorted[s++] = list[n1++];
+  for(i = low; i <= high;i++) list[i] = sorted[i];
+}
+```
 * 마스터 정리
 
   `T(n) = 2T(n/2) + Θ(n)` a=b^c인 경우, 따라서 `T(n) = Θ(nlogn)`
 
 * 비교 연산 횟수
 
-  * 트리의 모든 레벨에서 비교 연산은 동일하게 Θ(n)이고 트리의 높이는 Θ(logn)이므로 합병정렬의 점근 복잡도는 Θ(nlogn)
+   트리의 모든 레벨에서 비교 연산은 동일하게 Θ(n)이고 트리의 높이는 Θ(logn)이므로 합병정렬의 점근 복잡도는 Θ(nlogn)
 
 * 제자리 정렬 알고리즘
   * 입력 데이터의 개수와 무관한 메모리 공간을 추가적으로 사용
@@ -31,6 +60,8 @@ categories: jekyll update
 전체 데이터 집합을 두 개의 집합으로 분할하고 각각의 데이터 집합을 퀵정렬, 부문제가 두 개인데 결합 과정이 없음
 
 ![quick_sort](https://upload.wikimedia.org/wikipedia/commons/6/6a/Sorting_quicksort_anim.gif)
+
+_source:[wikipedia](https://upload.wikimedia.org/wikipedia/commons/6/6a/Sorting_quicksort_anim.gif)_
 
 분할 과정에서 배열의 모든 원소는 한번씩 스캔해야 하므로 Θ(n)
 * 최선의 경우
@@ -101,9 +132,9 @@ categories: jekyll update
 
 3 막대를 각각 from(A), temp(B), to(C)라 하고 원판은 최초에 from에 있으며 최종적으로 to로 옮기는 것으로 가정
 
-1. from의 n-1개의 원판을 to를 이용하여 temp로 옮기기
-2. from의 원판을 to로 옮기기
-3. temp의 n-1개의 원판을 from을 이용하여 to로 옮기기
+1. from(A)의 n-1개의 원판을 to(C)를 이용하여 temp(B)로 옮기기
+2. from(A)의 원판을 to(C)로 옮기기
+3. temp(B)의 n-1개의 원판을 from(A)을 이용하여 to로 옮기기
 
 #### 복잡도 분석
 
@@ -125,6 +156,7 @@ categories: jekyll update
 			 = 2^n - 1
 			 =Θ(2^n)
 	```
+함수를 실행할 때마다 두 번의 순환 호출을 하게 되는데 문제의 크기가 1 만큼만 줄어들기 때문에 시간 복잡도는 상당히 높을 수밖에 없다.
 
 ---
 ### 분할 정복을 마치며

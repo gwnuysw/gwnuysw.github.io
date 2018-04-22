@@ -22,8 +22,13 @@ categories: jekyll update
   * 반복에 비해 수행속도 면에서는 손해
 
 ---
-### 팩토리얼 Factorial
+### 순환 알고리즘의 구조
 
+* 기본조항
+* 귀납조항
+
+---
+### 팩토리얼 Factorial
 
 ```
 int iterative_factorial(int n)
@@ -52,6 +57,7 @@ T(n) = T(n-1) + C
      = C + (n-1)C
      = Θ(n)
 ```
+C는 T(n) 연산을 하는데 곱셈등 부가적으로 걸리는 시간이다.
 
 ---
 ### 피보나치 수열
@@ -118,13 +124,17 @@ divide_and_conquer(P)
   }
 }
 ```
+Threshold, 임계값은 순환적인 분할정복을 멈추게 하는 기준에 해당한다. 문제의 임계값보다 크다면 분할정복을 사용하고 작다면 분할정복을 사용하지 않고 직접 해를 구한다.
 
 ---
 ### 마스터 정리
 
 ```
+//분할정복 알고리즘의 시간복잡도 함수가 다음과 같다면
 T(n) = aT(n/b) + O(n^c)
+//a는 부문제 개수, n/b는 부문제 크기, O(n^c)는 부문제들의 해답을 결합하는데 필요한 시간
 
+//다음과 같이 점근 복잡도를 계산한다.
 a = b^c경우 : T(n) = O(n^c*logn)
 a > b^c경우 : T(n) = O(n^d), 여기서 d = logb(a)
 a < b^c경우 : T(n) = O(n^c)
@@ -153,7 +163,7 @@ int maximum_DC(int list[], int low, int high){
 
   else{   //탈출 조건이 아닌 경우 분할, 결합을 수행한다.
     middle = (low + high) / 2;  //분할
-    lmax = maximum_DC(list, low, middle);//부할
+    lmax = maximum_DC(list, low, middle);//분할
     hmax = maximum_DC(list, middle+1, high);//분할
     if(lmax >= hmax) return lmax;
     else return hmax;
