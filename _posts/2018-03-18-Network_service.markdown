@@ -45,6 +45,7 @@ comments: true
 ### 네트워크층의 성능
 
 1. 지연
+
   * 전송 지연(transmission delay)`trDelay = (Packet length) / (transmission rate)`
 
       선로상에 패킷은 비트를 하나씩 차례로 보낸다. 만약 첫 비트가 시간 t1상에 있고, 마지막 비트가 시간 t2상에 있다면 패킷의 전송 지연은 (t2-t1이 된다)
