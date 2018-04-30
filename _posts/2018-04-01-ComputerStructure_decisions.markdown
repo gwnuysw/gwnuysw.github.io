@@ -34,7 +34,7 @@ categories: jekyll update
 |Description:|Jumps to the calculated address|
 |Operation:|`PC = nPC; nPC = (PC & 0xf0000000)(or op)(target << 2);`|
 
-_출처 : [MIPS Instruction Reference](http://www.mrc.uidaho.edu/mrc/people/jff/digital/MIPSir.html)_
+_Source : [MIPS Instruction Reference](http://www.mrc.uidaho.edu/mrc/people/jff/digital/MIPSir.html)_
 
 ```
 (f, g, h, i, j  : $S0~$S4)
@@ -91,6 +91,8 @@ EXIT    ~~~
 |Description:|If $s is less than immediate, $t is set to one. It gets zero otherwise.|
 |Operation:|`if $s < imm $t = 1; advance_pc (4); else $t = 0; advance_pc (4);`|
 
+
+_Source : [MIPS Instruction Reference](http://www.mrc.uidaho.edu/mrc/people/jff/digital/MIPSir.html)_
 ```
 (i = $S0. j = $S1. N : $S2)
 

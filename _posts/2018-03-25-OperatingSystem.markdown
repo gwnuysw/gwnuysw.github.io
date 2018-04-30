@@ -77,6 +77,8 @@ google_analytics: UA-116276549-1
 
     ![single-shared bus](https://www.researchgate.net/profile/Rene_Van_Leuken/publication/268041882/figure/fig9/AS:368280784130050@1464816389132/Single-bus-shared-memory-architecture.png)
 
+    _Source:[researchgate](https://www.researchgate.net/profile/Rene_Van_Leuken)_
+
     처리기들이 하나의 버스를 공유하여 메모리에 접근하는 구조
 
     * 단점
@@ -85,10 +87,14 @@ google_analytics: UA-116276549-1
 
   * 다중 버스(Multiple Bus)
     ![Multiple Bus](http://wiki.expertiza.ncsu.edu/images/e/e9/Bus01.JPG)
+
+    _Source:[http://wiki.expertiza.ncsu.edu]_
     메모리 모듈(메모리 뱅크)과 버스를 여러개 두어, 처리기들이 서로 다른 메모리 모듈에 동시에 접근할 수 있도록 한다. 서로 다른 메모리에 접근 할 때는 충돌이 없다.
 
   * 크로스바 스위치 버스(Crossbar Switch Bus)
     ![crossbar switch bus](https://image.slidesharecdn.com/vikramsinghslathia-120417071006-phpapp01/95/multiprocessor-system-13-728.jpg?cb=1349084515)
+
+    _Source:[slideShare](https://image.slidesharecdn.com/vikramsinghslathia-120417071006-phpapp01/95/multiprocessor-system-13-728.jpg?cb=1349084515)_
     처리기와 메모리가 만나는 모든 지점에 스위치를 배치한다. 서로 다른 메모리에 접근 할때는 충돌이 없다.
 
   * 계층적 버스(Hierachical Bus)
@@ -99,6 +105,8 @@ google_analytics: UA-116276549-1
   * 다중 포트 메모리 버스(Multi-Port Memory Bus)
 
     ![Multi-Port Memory Bus](http://images.kbench.com:8080/korean/mouse_potato/hw_lec/1999_09/image/3.gif)
+
+    _Source:[kbench.com](http://images.kbench.com:8080/korean/mouse_potato/hw_lec/1999_09/image/3.gif)_
 
     메모리에 접근포트를 여러개 두고, 각각 독립적으로 접근 가능
 
