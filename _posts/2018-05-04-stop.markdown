@@ -1,0 +1,8 @@
+---
+layout: post
+title:  "블로그 운영 잠정 중단"
+date:   2018-05-04 21:25:00 +0900
+categories: jekyll update
+---
+
+힘들어서 중단합니다. 다가오는 여름방학 개편을 기대하세요!
