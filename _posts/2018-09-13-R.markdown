@@ -9,4 +9,4 @@ comments : true
 ---
 ### R 설치하기
 
-![Mysys](./_images/startR/36.png)
+![Mysys](https://github.com/gwnuysw/gwnuysw.github.io/blob/master/_images/startR/36.png)
