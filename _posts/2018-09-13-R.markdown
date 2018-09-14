@@ -4,9 +4,178 @@ title:  "R 맛보기"
 date:   2018-09-13 11:23:00 +0900
 categories: jekyll update
 comments : true
----
 
 ---
 ### R 설치하기
 
+공식 홈페이지 <a href="https://cran.r-project.org">https://cran.r-project.org</a>에 가서 자기 시스템에 맞는 R을 다운로드 받습니다. 저는 아래 사진 처럼 ubuntu를 사용하니까 debian Package를 설치합니다.
+
 ![Mysys](https://github.com/gwnuysw/gwnuysw.github.io/blob/master/_images/startR/36.png?raw=true)
+
+![Package](https://github.com/gwnuysw/gwnuysw.github.io/blob/master/_images/startR/1.png?raw=true)
+
+R package나 R을 이용하는? 소프트웨어를 직접 컴파일 하고 싶다면 r-base-dev만 설치해도 된다고 합니다. 그러나 그게 무슨 뜻인지 모르니 일단 r-base, r-base-dev 둘다 설치 했습니다.
+
+![Firstrun](https://github.com/gwnuysw/gwnuysw.github.io/blob/master/_images/startR/2.png?raw=true)
+
+콘솔을 열고 R을 실행했습니다. 제대로 설치 된것 같으니 앞으로 사용하게될 패키지들을 설치합니다.
+
+---
+### Package설치
+
+XML패키지를 먼저 설치해 볼건데, 패키지가 설치되있는지 아닌지 확인합니다.
+![XML](https://github.com/gwnuysw/gwnuysw.github.io/blob/master/_images/startR/3.png?raw=true)
+
+False가 뜬것을 보니 XML은 설치 해야 합니다. R에서 XML패키지에 대한 설명은 아래 링크에 있습니다.
+
+<a href="https://cran.r-project.org/web/packages/XML/index.html">https://cran.r-project.org/web/packages/XML/index.html</a>
+
+http, ftp 로 접근 가능한 XML과 HTML 문서를 생성하고 읽을수 있다고 합니다.
+
+![XMLinstall](https://github.com/gwnuysw/gwnuysw.github.io/blob/master/_images/startR/5.png?raw=true)
+
+XML을 설치하는데 필요한 의존성은 'bitops'와 'RCurl' 인데 설치 옵션 `dependencies = TRUE`로 하면 의존성도 자동 설치를 해줍니다.
+
+![XMLinstallLog1](https://github.com/gwnuysw/gwnuysw.github.io/blob/master/_images/startR/6.png?raw=true)
+
+설치 로그를 보니 RCurl을 설치하는 도중 curl-config를 찾을 수 없다고 합니다. 제 컴퓨터에 curl은 설치돼있을 텐데 아무튼 로그 내용을 인터넷에 검색해 봤습니다.
+
+<a href="https://askubuntu.com/questions/359267/cannot-find-curl-config-in-ubuntu-13-04">https://askubuntu.com/questions/359267/cannot-find-curl-config-in-ubuntu-13-04</a>
+
+작성 된지 4년 정도 된 글인데 일단 따라해 했습니다.
+
+그런데 이번엔 또 다른 에러 메시지가 떳습니다.
+
+![XMLinstallLog2](https://github.com/gwnuysw/gwnuysw.github.io/blob/master/_images/startR/9.png?raw=true)
+
+<a href="https://stackoverflow.com/questions/7765429/unable-to-install-r-package-in-ubuntu-11-04">https://stackoverflow.com/questions/7765429/unable-to-install-r-package-in-ubuntu-11-04</a>
+
+이번엔 6년이나 된 글인데 따라 해보니 이제 정말 설치가 완료 됐습니다.
+
+패키지 설치하는 법을 대강 익혔으니 필요한 패키지들을 쭉쭉 설치합니다.
+
+![igraph](https://github.com/gwnuysw/gwnuysw.github.io/blob/master/_images/startR/13.png?raw=true)
+![ggplot2](https://github.com/gwnuysw/gwnuysw.github.io/blob/master/_images/startR/14.png?raw=true)
+![glmnet](https://github.com/gwnuysw/gwnuysw.github.io/blob/master/_images/startR/15.png?raw=true)
+
+등등 필요한 패키지가 있으면 `RSiteSearch`라는 함수로 내용을 검색해 보고 설치 하면 됩니다.
+
+![RSiteSearch](https://github.com/gwnuysw/gwnuysw.github.io/blob/master/_images/startR/38.png?raw=true)
+
+
+![rearchTM](https://github.com/gwnuysw/gwnuysw.github.io/blob/master/_images/startR/39.png?raw=true)
+
+tm을 RSiteSearch로 검색해봤습니다.
+
+![read.delim](https://github.com/gwnuysw/gwnuysw.github.io/blob/master/_images/startR/22.png?raw=true)
+
+![importedData](https://github.com/gwnuysw/gwnuysw.github.io/blob/master/_images/startR/23.png?raw=true)
+raw데이터를 delim 함수를 이용해서 가져왔습니다.
+
+---
+### 데이터 가공
+필요한 도구를 모두 갖췄습니다. 본격 적으로 데이터에서 정보를 얻기 전에 데이터를 가공합니다.
+
+#### 열 이름 지정
+![columName](https://github.com/gwnuysw/gwnuysw.github.io/blob/master/_images/startR/24.png?raw=true)
+
+#### 날짜 정보 가공
+![dateError](https://github.com/gwnuysw/gwnuysw.github.io/blob/master/_images/startR/25.png?raw=true)
+
+날짜 정보를 가공하는데 문제가 생겼습니다. ufo$DataOccurred행이 너무 길다고 합니다.
+
+![dateProblem](https://github.com/gwnuysw/gwnuysw.github.io/blob/master/_images/startR/26.png?raw=true)
+
+직접 데이터를 들여다 보니 날짜라고 보기 어려운 문장들이 보입니다.
+
+![dateProblem](https://github.com/gwnuysw/gwnuysw.github.io/blob/master/_images/startR/26.png?raw=true)
+
+![reVector](https://github.com/gwnuysw/gwnuysw.github.io/blob/master/_images/startR/30.png?raw=true)
+
+ifelse 함수 실행 결과 good.row에 어떤 값이 들어가는지 궁금해서 들여다 봤습니다. ifelse함수의 첫번째 인자는 논리식이고 이 논리식이 참이면 두번째 인자값이 벡터 값으로, 거짓이면 세번째 인자가 벡터값으로 대입되는 것 같습니다.
+
+![wantedDate](https://github.com/gwnuysw/gwnuysw.github.io/blob/master/_images/startR/31.png?raw=true)
+
+우리가 원하는 형식의 날짜 데이터는 총 688개 입니다.
+
+`ufo<-ufo[good.rows,]`라는 문장은 https://stackoverflow.com/questions/17052426/what-is-the-purpose-of-this-trailing-comma-in-r 에 따르면 행별로 subsetting 을 하는 거라고 합니다. ufo 데이터셋을 good.rows 벡터의 참의 값을 가지고 다시 데이터 셋을 만드는 것입니다.
+
+![reDate](https://github.com/gwnuysw/gwnuysw.github.io/blob/master/_images/startR/32.png?raw=true)
+
+이번엔 날짜 문자열 변환이 성공했습니다.
+
+#### 위치 정보 가공
+
+![locationFunc](https://github.com/gwnuysw/gwnuysw.github.io/blob/master/_images/startR/33.png?raw=true)
+
+Location열에서 "도시, 주"형태의 데이터를 코마를 구분자로 하여 구분하는데 코마가 없으면 그 데이터는 NotAvailable 이라고 표시합니다. 그 다음 gsub함수는 Location데이터의 공백 문자를 없애 주고 그아래 if else 문은 도시, 주 데이터쌍이 맞지 않는다면 NotAvailable이라고 표시합니다.
+
+![locationapllied](https://github.com/gwnuysw/gwnuysw.github.io/blob/master/_images/startR/34.png?raw=true)
+
+[[키]], [값] 형태의 city.state데이터를 2열 행렬로 변환합니다.
+
+![locationapllied](https://github.com/gwnuysw/gwnuysw.github.io/blob/master/_images/startR/35.png?raw=true)
+
+![ufoAppended](https://github.com/gwnuysw/gwnuysw.github.io/blob/master/_images/startR/41.png?raw=true)
+
+변환한 행렬을 다시 열이름 USCity, USState를 부여하여 ufo데이터에 추가합니다.
+
+![USonly](https://github.com/gwnuysw/gwnuysw.github.io/blob/master/_images/startR/42.png?raw=true)
+
+---
+### 데이터 요약 보기와 data discard
+
+![SummaryNA](https://github.com/gwnuysw/gwnuysw.github.io/blob/master/_images/startR/43.png?raw=true)
+
+요약 보기를 하였으나 DateOccurred의 데이터중 NA가 하나 있습니다. 어떻게 된 일인지 해당 열의 데이터만 들여다봤습니다.
+
+![Datacheck](https://github.com/gwnuysw/gwnuysw.github.io/blob/master/_images/startR/44.png?raw=true)
+
+어떤 이유에서 인지 DateReported 항목은 포매팅이 잘 이루어졌으나 DateOccurred의 항목은 NA값이 들어갔습니다.
+
+![rightSummary](https://github.com/gwnuysw/gwnuysw.github.io/blob/master/_images/startR/45.png?raw=true)
+아래의 명령어로 DateOccurred의 NA 값을 지웠습니다.
+```
+ufo.us<-subset(ufo.us, !is.na(DateOccurred))
+```
+이번엔 NA값이 사라진 데이터 요약 정보를 얻었습니다.
+
+![major](https://github.com/gwnuysw/gwnuysw.github.io/blob/master/_images/startR/46.png?raw=true)
+
+히스토그램을 그려보려는데 major인수는 안쓰인다고 합니다. 이게 어떤의미의 에러메시지 인지 찾아봤습니다.
+
+https://www.rdocumentation.org/packages/ggplot2/versions/1.0.1/topics/scale_x_date
+
+문서상으로 break와 major는 같은 의미의 인수 인것같은데 좀더 인터넷에서 찾아봤습니다.
+
+https://stackoverflow.com/questions/9857123/error-in-continuous-scale-and-error-in-inherits-ggplot2-r-2-14-2
+
+스택 오버플로우 답변내용을 보니 major대신 break를 사용해야 할 것같습니다.
+
+>Simply two steps:
+>
+>Add library:
+>
+>library(scales)
+>
+>Change old parameter name:
+>
+>breaks="50 years" instead of major="50 years"
+
+![drowhist](https://github.com/gwnuysw/gwnuysw.github.io/blob/master/_images/startR/48.png?raw=true)
+![firsthist](https://github.com/gwnuysw/gwnuysw.github.io/blob/master/_images/startR/47.png?raw=true)
+
+1990년 이전의 데이터를 잘라서 다시 히스토그램을 그렸습니다.
+
+![drowthist](https://github.com/gwnuysw/gwnuysw.github.io/blob/master/_images/startR/49.png?raw=true)
+![sechist](https://github.com/gwnuysw/gwnuysw.github.io/blob/master/_images/startR/50.png?raw=true)
+
+
+![sechist](https://github.com/gwnuysw/gwnuysw.github.io/blob/master/_images/startR/51.png?raw=true)
+
+![sechist](https://github.com/gwnuysw/gwnuysw.github.io/blob/master/_images/startR/52.png?raw=true)
+
+데이터가 집계되지 않은 달도 NA표시로 확인할 수 있도록 가공합니다.
+
+![readyforanalize](https://github.com/gwnuysw/gwnuysw.github.io/blob/master/_images/startR/53.png?raw=true)
+도중에 철자가 틀려서 문제가 생겼지만 금방 고쳤습니다.
