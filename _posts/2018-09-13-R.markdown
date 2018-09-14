@@ -179,3 +179,39 @@ https://stackoverflow.com/questions/9857123/error-in-continuous-scale-and-error-
 
 ![readyforanalize](https://github.com/gwnuysw/gwnuysw.github.io/blob/master/_images/startR/53.png?raw=true)
 도중에 철자가 틀려서 문제가 생겼지만 금방 고쳤습니다.
+
+![legend](https://github.com/gwnuysw/gwnuysw.github.io/blob/master/_images/startR/54.png?raw=true)
+
+리전드 매개변수가 문제가 있다고 합니다. R버전이 달라서 매개변수 이름이 바뀌었거나 더이상 사용하지 않는 매개변수일 것으로 예상됩니다.
+
+http://ggplot.yhathq.com/docs/scale_colour_manual.html
+
+설명서에 legend라는 매개변수는 없고 values만있습니다.
+
+![opts](https://github.com/gwnuysw/gwnuysw.github.io/blob/master/_images/startR/55.png?raw=true)
+
+이번엔 opts라는 함수에 관련된 문제입니다.
+
+https://stackoverflow.com/questions/13148121/updating-ggplot2-code-for-new-version
+
+opt(title="*")형식의 함수는 labs(title="*")로 바뀌었다고 합니다.
+
+![problemsolved](https://github.com/gwnuysw/gwnuysw.github.io/blob/master/_images/startR/56.png?raw=true)
+
+이제야 잘 실행 됩니다.
+
+
+---
+### 데이터 분석
+
+![date_trans](https://github.com/gwnuysw/gwnuysw.github.io/blob/master/_images/startR/57.png?raw=true)
+
+그래프를 그리려는데 date_trans함수는 Date class함수가 아니면 안된다는 에러메시지가 뜸니다.
+
+![date_class](https://github.com/gwnuysw/gwnuysw.github.io/blob/master/_images/startR/69.png?raw=true)
+
+Date class 는 YearMonth열에서만 사용하므로 이 열을 다시 as.Date함수를 이용해서 값을 수정해봤습니다.
+
+![final](https://github.com/gwnuysw/gwnuysw.github.io/blob/master/_images/startR/59.png?raw=true)
+
+이번엔 제대로 결과가 나왔습니다.
