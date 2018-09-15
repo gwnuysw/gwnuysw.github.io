@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: 
 title:  "R 맛보기"
 date:   2018-09-13 11:23:00 +0900
 categories: jekyll update
