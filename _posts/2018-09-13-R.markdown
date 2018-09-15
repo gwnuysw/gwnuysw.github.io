@@ -1,12 +1,11 @@
-
+---
 layout: post
 title:  "R 맛보기"
 date:   2018-09-13 11:23:00 +0900
 categories: jekyll update
 comments : true
-
-
-### R 설치하기
+---
+<!--### R 설치하기
 
 공식 홈페이지 <a href="https://cran.r-project.org">https://cran.r-project.org</a>에 가서 자기 시스템에 맞는 R을 다운로드 받습니다. 저는 아래 사진 처럼 ubuntu를 사용하니까 debian Package를 설치합니다.
 
@@ -216,4 +215,4 @@ Date class 는 YearMonth열에서만 사용하므로 이 열을 다시 as.Date�
 
 ![final](https://github.com/gwnuysw/gwnuysw.github.io/blob/master/_images/startR/59.png?raw=true)
 
-이번엔 제대로 결과가 나왔습니다.
+이번엔 제대로 결과가 나왔습니다.-->
