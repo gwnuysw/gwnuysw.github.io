@@ -16,7 +16,7 @@ comments : true
 
 프로토타입 체인이란 다른오브젝트와 닯은 오브젝트를 만드는 메카니즘이다.
 
-## 1-thime prototype copying
+## 1-time prototype copying
 
 ```
 var gold = {a:1};
@@ -29,5 +29,17 @@ extend함수는 지속적인 오브젝트 복사가 아니라 단 한번만 복�
 ## ongoing look-up time delegation
 
 ```
+var gold = {a:1};
 
+var blue = extend({},gold);
+
+var rose = Object.create(gold);
+rose.b = 2;
 ```
+
+Object.create함수는 새로운 object rose를 만들어 주는 동시에 rose가 gold를 delegate field lookup할수 있도록 한다.
+rose.a는 gold.a를 참조하며 rose.b는 gold.b에 없다.
+![Prototype chain](https://github.com/gwnuysw/gwnuysw.github.io/blob/master/_images/javascript/prototype_chain.png?raw=true)
+
+
+모든 object는 'Object'프로토타입이라는 공통 조상을 가집니다.
