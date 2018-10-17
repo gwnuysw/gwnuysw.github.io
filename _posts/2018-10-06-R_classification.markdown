@@ -5,7 +5,7 @@ date:   2018-10-06 11:11:00 +0900
 categories: jekyll update
 comments : true
 ---
-<!--
+<!---->
 # 분류 :스팸 필터링
 
 현재 작업 디렉토리와 작업 이미지를 세팅합니다.
@@ -341,4 +341,4 @@ print(class.res)
 이지햄 결과가 조금 다른것 말고 큰차이가 없습니다.
 ## 그래프
 ![graph2](https://github.com/gwnuysw/gwnuysw.github.io/blob/master/_images/R_classification/14.png?raw=true)
-그래프도 큰차이가 없습니다.-->
+그래프도 큰차이가 없습니다.
