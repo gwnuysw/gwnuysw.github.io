@@ -1,18 +1,18 @@
 ---
 layout: post
-title:  "R 분류"
+title:  "R Classification"
 date:   2018-10-06 11:11:00 +0900
 categories: jekyll update
 comments : true
 ---
-<!--
+<!---->
 # 분류 :스팸 필터링
 
 현재 작업 디렉토리와 작업 이미지를 세팅합니다.
 
 ```
-> setwd("~/Documents/study/studyStuff/dataminning/second/");
-> save.image(".RData");
+setwd("~/Documents/study/studyStuff/dataminning/second/");
+save.image(".RData");
 ```
 
 ## 베이즈 스팸 분류기 개발
@@ -22,32 +22,32 @@ comments : true
 #### 라이브러리, 이메일파일 불러오기
 
 ```
-> library(tm);
-> library(ggplot2);
-> spam.path<-"../first/ML_for_Hackers-master/03-Classification/data/spam/"
-> spam2.path<-"../first/ML_for_Hackers-master/03-Classification/data/spam_2/"
-> easyham.path<-"../first/ML_for_Hackers-master/03-Classification/data/easy_ham"
-> easyham2.path<-"../first/ML_for_Hackers-master/03-Classification/data/easy_ham_2"
-> hardham.path<-"../first/ML_for_Hackers-master/03-Classification/data/hard_ham"
-> hardham2.path<-"../first/ML_for_Hackers-master/03-Classification/data/hard_ham_2/"
+library(tm);
+library(ggplot2);
+spam.path<-"../first/ML_for_Hackers-master/03-Classification/data/spam/"
+spam2.path<-"../first/ML_for_Hackers-master/03-Classification/data/spam_2/"
+easyham.path<-"../first/ML_for_Hackers-master/03-Classification/data/easy_ham"
+easyham2.path<-"../first/ML_for_Hackers-master/03-Classification/data/easy_ham_2"
+hardham.path<-"../first/ML_for_Hackers-master/03-Classification/data/hard_ham"
+hardham2.path<-"../first/ML_for_Hackers-master/03-Classification/data/hard_ham_2/"
 ```
 #### spam 텍스트 추출
 모든 메일 본문의 첫줄은 "언제나" 줄바꿈으로 시작합니다. 우선 이 규칙을 활용해서 메시지 텍스트를 추출하는 함수를 작성합니다.
 
 ```
-> get.msg<-function(path){
-+    con<-file(path, open="rt", encoding="latin1")
-+    print("--------------------------------------------------------------------------------Start Con------------------------------------------------------------------------------")
-+    print(head(con))
-+    text<-readLines(con)
-+    print("--------------------------------------------------------------------------------Start text------------------------------------------------------------------------------")
-+    print(head(text))
-+    msg<-text[seq(which(text=="")[1]+1,length(text),1)]
-+    print("--------------------------------------------------------------------------------Start msg------------------------------------------------------------------------------")
-+    print(head(msg))
-+    close(con)
-+    return(paste(msg,collapse="\n"))
-+ }
+ get.msg<-function(path){
+    con<-file(path, open="rt", encoding="latin1")
+    print("--------------------------------------------------------------------------------Start Con------------------------------------------------------------------------------")
+    print(head(con))
+    text<-readLines(con)
+    print("--------------------------------------------------------------------------------Start text------------------------------------------------------------------------------")
+    print(head(text))
+    msg<-text[seq(which(text=="")[1]+1,length(text),1)]
+    print("--------------------------------------------------------------------------------Start msg------------------------------------------------------------------------------")
+    print(head(msg))
+    close(con)
+    return(paste(msg,collapse="\n"))
+ }
 
 ```
 con 객체로 파일을 엽니다.
@@ -77,14 +77,14 @@ all.spam<-sapply(spam.docs, function(p) get.msg(paste(spam.path,p,sep="/")))
 ### spam 말뭉치 만들어 내기
 
 ```
-> get.tdm<-function(doc.vec){
-+    doc.corpus<-Corpus(VectorSource(doc.vec))
-+    control<-list(stopwords=TRUE, removePunctuation=TRUE, removeNumbers=TRUE, minDocFreq=2)
-+    doc.dtm<-TermDocumentMatrix(doc.corpus,control)
-+    return(doc.dtm)
-+ }
+ get.tdm<-function(doc.vec){
+    doc.corpus<-Corpus(VectorSource(doc.vec))
+    control<-list(stopwords=TRUE, removePunctuation=TRUE, removeNumbers=TRUE, minDocFreq=2)
+    doc.dtm<-TermDocumentMatrix(doc.corpus,control)
+    return(doc.dtm)
+ }
 
->spam.tdm<-get.tdm(all.spam)
+spam.tdm<-get.tdm(all.spam)
 ```
 
 <a href="https://www.rdocumentation.org/packages/tm/versions/0.7-5/topics/VectorSource">VectorSource</a>함수는 각 벡터 원소를 하나의 문서로 해석합니다.
@@ -97,7 +97,7 @@ get.tdm은 문서의 모음에서 불용어를 제거하고, 구두점도 제거
 
 spam.tdm을 표준 R행렬로 변환합니다.
 ```
-> spam.matrix <- as.matrix(spam.tdm)
+spam.matrix <- as.matrix(spam.tdm)
 ```
 다음은 spam.matrix의 일부입니다. **행렬의 행은 단어, 열은 문서입니다.**
 
@@ -105,7 +105,7 @@ spam.tdm을 표준 R행렬로 변환합니다.
 
 모든 문서의 단어 출현수를 더합니다.
 ```
-> spam.counts<-rowSums(spam.matrix)
+spam.counts<-rowSums(spam.matrix)
 ```
 
 다음은 spam.counts의 일부입니다.
@@ -115,7 +115,7 @@ spam.tdm을 표준 R행렬로 변환합니다.
 단어열과 출현 빈도수열을 뽑아서 데이터 프레임을 다시 만듭니다.
 
 ```
-> spam.df<-data.frame(cbind(names(spam.counts),as.numeric(spam.counts)),stringsAsFactors=FALSE)
+spam.df<-data.frame(cbind(names(spam.counts),as.numeric(spam.counts)),stringsAsFactors=FALSE)
 ```
 다음은 spam.df의 일부입니다.
 
@@ -130,7 +130,7 @@ spam.df$frequency<-as.numeric(spam.df$frequency)
 주어진 단어가 나타나는 문서의 비율을 계산합니다.
 
 ```
->spam.occurrence<-sapply(1:nrow(spam.matrix), function(i){
+spam.occurrence<-sapply(1:nrow(spam.matrix), function(i){
      length(which(spam.matrix[i,]>0))/ncol(spam.matrix)
 })
 ```
@@ -138,28 +138,28 @@ spam.df$frequency<-as.numeric(spam.df$frequency)
 
 마지막으로 단어의 밀도를 구하고 spam.df데이터프레임에 밀도와 출현정도를 추가합니다.
 ```
-> spam.density<-spam.df$frequency/sum(spam.df$frequency)
-> spam.df<-transform(spam.df, density=spam.density,occurrence=spam.occurrence)
+spam.density<-spam.df$frequency/sum(spam.df$frequency)
+spam.df<-transform(spam.df, density=spam.density,occurrence=spam.occurrence)
 ```
 ![spam](https://github.com/gwnuysw/gwnuysw.github.io/blob/master/_images/R_classification/6.png?raw=true)
 
 #### easy햄 과정은 spam과정을 그대로 따라하면 됩니다.
 
 ```
-> easyham.docs<-dir(easyham.path)
-> easyham.docs<-easyham.docs[which(easyham.docs!="cmds")]
-> all.easyham<-sapply(easyham.docs, function(p) get.msg(paste(easyham.path,p,sep="/")))
-> easyham.tdm<-get.tdm(all.easyham)
-> easyham.matrix <- as.matrix(easyham.tdm)
-> easyham.counts<-rowSums(easyham.matrix)
-> easyham.df<-data.frame(cbind(names(easyham.counts),as.numeric(easyham.counts)),stringsAsFactors=FALSE)
-> names(easyham.df)<-c("term", "frequency")
-> easyham.df$frequency<-as.numeric(easyham.df$frequency)
-> easyham.occurrence<-sapply(1:nrow(easyham.matrix), function(i){
+easyham.docs<-dir(easyham.path)
+easyham.docs<-easyham.docs[which(easyham.docs!="cmds")]
+all.easyham<-sapply(easyhamocs, function(p) get.msg(paste(easyham.path,p,sep="/")))
+easyham.tdm<-get.tdm(all.easyham)
+easyham.matrix <- as.matrix(easyham.tdm)
+easyham.counts<-rowSums(easyham.matrix)
+easyham.df<-data.frame(cbind(names(easyham.counts),as.numeric(easyham.counts)),stringsAsFactors=FALSE)
+names(easyham.df)<-c("term", "frequency")
+easyham.df$frequency<-as.numeric(easyham.df$frequency)
+easyham.occurrence<-sapply(1:nrow(easyham.matrix), function(i){
 +    length(which(spam.matrix[i,]>0))/ncol(spam.matrix)
 + })
-> easyham.density<-easyham.df$frequency/sum(easyham.df$frequency)
-> easyham.df<-transform(easyham.df, density=easyham.density,occurrence=easyham.occurrence)
+easyham.density<-easyham.df$frequency/sum(easyham.df$frequency)
+easyham.df<-transform(easyham.df, density=easyham.density,occurrence=easyham.occurrence)
 
 ```
 
@@ -256,8 +256,8 @@ class.df$Type <- as.factor(class.df$Type)
 
 저난도 햄의 부정오류개수를 구합니다.
 ```
-> easyHam.False<-subset(class.df, Type=="EASYHAM" & Class=="FALSE")
-> easyHam.FalseCount<-nrow(easyHam.False)
+easyHam.False<-subset(class.df, Type=="EASYHAM" & Class=="FALSE")
+easyHam.FalseCount<-nrow(easyHam.False)
 ```
 ![easyHamFlaseCount](https://github.com/gwnuysw/gwnuysw.github.io/blob/master/_images/R_classification/10.png?raw=true)
 
@@ -341,4 +341,14 @@ print(class.res)
 이지햄 결과가 조금 다른것 말고 큰차이가 없습니다.
 ## 그래프
 ![graph2](https://github.com/gwnuysw/gwnuysw.github.io/blob/master/_images/R_classification/14.png?raw=true)
-그래프도 큰차이가 없습니다.-->
+그래프도 큰차이가 없습니다.
+
+**
+모든 내용은 강릉원주대학교 강태원 교수님의 '데이터 마이닝'강의와 드류 콘웨이 와 존 마일스 화이트의'해커스타일로 배우는 기계학습'를 토대로 작성했습니다.**
+
+**Machine Learning for Hackers License**
+
+All source code is copyright (c) 2012, under the Simplified BSD License.
+For more information on FreeBSD see: http://www.opensource.org/licenses/bsd-license.php
+
+All images and materials produced by this code are licensed under the Creative Commons Attribution-Share Alike 3.0 United States License: http://creativecommons.org/licenses/by-sa/3.0/us/
