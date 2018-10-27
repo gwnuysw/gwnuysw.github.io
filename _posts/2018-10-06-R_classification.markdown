@@ -342,7 +342,6 @@ print(class.res)
 ## 그래프
 ![graph2](https://github.com/gwnuysw/gwnuysw.github.io/blob/master/_images/R_classification/14.png?raw=true)
 그래프도 큰차이가 없습니다.
-<<<<<<< HEAD
 
 **
 모든 내용은 강릉원주대학교 강태원 교수님의 '데이터 마이닝'강의와 드류 콘웨이 와 존 마일스 화이트의'해커스타일로 배우는 기계학습'를 토대로 작성했습니다.**
@@ -353,5 +352,3 @@ All source code is copyright (c) 2012, under the Simplified BSD License.
 For more information on FreeBSD see: http://www.opensource.org/licenses/bsd-license.php
 
 All images and materials produced by this code are licensed under the Creative Commons Attribution-Share Alike 3.0 United States License: http://creativecommons.org/licenses/by-sa/3.0/us/
-=======
->>>>>>> ac549094a31869782b9b94d4c4bf2e335b2ecab1
