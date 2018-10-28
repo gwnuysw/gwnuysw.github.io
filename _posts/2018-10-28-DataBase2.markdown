@@ -1,0 +1,317 @@
+---
+layout: post
+title:  "관계형 데이터 베이스 언어"
+date:   2018-10-28 11:47:00 +0900
+categories: jekyll update
+comments : true
+---
+
+# 관계형 데이터 베이스 언어
+
+## 관계대수
+
+관계 대수는 순수 데이터 언어로서 절차적 언어다. 하나 혹은 두 개의 릴레이션을 입력으로하여 그 결과로서 하나의 새로운 릴레이션을 생성하는 연산들의 모임으로 이루어진다. 관계 대수는 기본 연산으로 select, project, union, set difference, Cartesian-product, rename등의 연산을 포함한다.
+
+>Exactly.
+>
+>**Projection** means choosing which columns (or expressions) the query shall return.
+>
+>**Selection** means which rows are to be returned.
+>
+>if the query is
+>
+>`select a, b, c from foobar where x=3;`
+>
+>then "a, b, c" is the projection part, "where x=3" the selection part.[출처](https://stackoverflow.com/questions/1031076/what-are-projection-and-selection)
+
+**union**
+
+두릴레이션간 합집합 연산, 단, _열의 순서와 개수가 같아야한다 열의 이름은 달라도 데이터 형은 같아야한다._
+
+**set difference (MINUS)**
+
+차집합 연산이다 공통으로 속한 튜플들을 제거하고 남은 튜플들을 릴레이션 테이블 형태로 출력한다. 마찬가지로 _열의 순서와 개수가 같아야한다 열의 이름은 달라도 데이터 형은 같아야한다._ sql에서 연산자는 MINUS다
+
+**Cartesian-product**
+
+두릴레이션간의 카테션 곱을 수행하여 릴레이션 테이블 형태로 결과를 출력.
+
+sql에서는
+
+```
+SQL> SELECT  ID, NAME, AMOUNT, DATE
+   FROM CUSTOMERS, ORDERS; //[출처](https://www.tutorialspoint.com/sql/sql-cartesian-joins.htm)
+```
+
+혹은 Cross join을 이용한다.
+
+```
+SELECT *
+FROM table1
+CROSS JOIN table2; //[출처](https://www.w3resource.com/sql/joins/cross-join.php)
+```
+
+**rename**
+
+연산 실행 결과로 만들어진 릴레이션 테이블에 이름을 붙여 출력하는 연산에 대한 형식이다. sql에 대응되는 연산자는 뭔지 모르겠다...
+
+**set-intersection**
+
+교집합 연산 마찬가지로 _열의 순서와 개수가 같아야한다 열의 이름은 달라도 데이터 형은 같아야한다._ sql에서 연산자는 INTERSECT다
+
+**natural-join**
+
+두 릴레이션 스키마에서 일치하는 속성들을 중심으로 두 릴레이션의 튜플들을 연결하여 릴레이션 테이블을 생성한다.
+
+```
+-- NATURAL JOIN을 사용한 SQL 문장.
+SQL> SELECT empno, ename, deptno
+     FROM emp NATURAL JOIN dept
+
+-- 일반적인 SQL 문장
+SQL> SELECT e.empno, e.ename, d.deptno
+     FROM emp e, dept d
+     WHERE e.deptno=d.deptno [출처](http://www.gurubee.net/lecture/1879)
+```
+
+**Theta join**
+
+>카티전 곱(cartesian product) + 선택 연산 (select operation) 의 형태입니다.
+>선택연산의 비교 연산자가 = , < , > 등이 사용되는 연산이 theta join(세타조인) 세타조인 중에서
+>특별히 비교연산자가 = 인 경우 equi join(동등 조인) 동등조인에서 중복되는 속성 중 하나가 제거 된것이
+>natural join(자연조인) 입니다. (이것 모두 INNER JOIN)
+>
+>출처: http://blueskai.tistory.com/11 [blueskai]
+
+**division**
+
+r / s 상의 릴레이션 테이블 형태를 출력하는 연산으로 s의 릴레이션 스키마는 r의 릴레이션 스키마에 포함되어야 한다.
+
+**assign**
+
+관계 대수 연산의 중간 결과를 릴레이션 변수에 일시적으로 저장하는 연산
+
+# SQL (Structtured Query Language)
+
+sql 구성 기능
+
+- 데이터 정의 언어 DataDefinitionLanguage: 스키마 정의, 릴레이션 삭제와 변경, 인덱스 생성,
+- 대화식 데이터 관리 언어 DataManipulationLanguage: 튜플 삽입, 삭제, 갱신
+- Embedded DML: 범용언어 내에서 SQL을 사용
+- view 정의 : 뷰를 정의할수 있는 명령어 포함
+- 데이터 접근 권한 : 릴레이션과 뷰에대한 접근 권한을 기술하는 명령어 포함
+- 무결성 제약조건 서술기능
+- 트랙잭션제어 : 데이터 베이스를 접근하는 프로그램의 동시성 제어를 위한 Locking제공
+
+## 기본 명령문
+
+### 데이터 정의어 DDL
+
+**스키마 정의**
+```
+create table 이름(
+    속성1 char(10) not null,
+    속성2 integer...
+  )
+```
+
+**릴레이션 삭제**
+
+`drop table 이름`
+
+**릴레이션 스키마 변경**
+
+
+`alter table (데이블이름) add (컬럼이름) (컬럼타입)`
+
+**컬럼 삭제**
+
+alter table (테이블이름) drop (컬럼이름)
+
+### 데이터 조작어 DML
+
+**select**
+
+출력하고자하는 릴레이션의 속성 리스트 _Project_와 대응된다. 중복 튜플을 제거하기 위해서는 다음과 같이 한다.
+```
+select distint 컬럼
+from 테이블
+```
+
+**from**
+
+데이터 검색에 이용되는 릴레이션들의 리스트를 갖는 절 _Cartesian Product_와 대응
+
+**where**
+
+데이터 검색 조건을 나타내며 관계대수 select와 대응된다. (비교연산, 논리연산)
+
+**order by**
+
+오름 차순은 `order by 컬럼 asc` 내림 차순은 `order by 컬럼 desc`
+
+**join**
+
+select에 두 테이블의 관계를 맺고 있는 컬럼을 포함 시키고 from에 두 테이블을 적으면 join 된다.
+
+**union**
+
+합집합 연산 `union all`하게 되면 중복된 튜플을 허용한다.
+```
+(select 컬럼
+from 테이블1)
+union
+(select 컬럼
+from 테이블2)
+```
+
+**intersect**
+
+교집합
+
+```
+(select 컬럼
+from 테이블1)
+intersect
+(select 컬럼
+from 테이블2)
+```
+
+**except**
+
+차집합 연산
+
+```
+(select 컬럼
+from 테이블1)
+except
+(select 컬럼
+from 테이블2)
+```
+
+### aggregation function
+
+컬럼에 대한 연산
+
+- COUNT
+- SUM
+- AVG
+- MAX
+- MIN
+
+```
+select COUNT(DISTINCT 학번) as 학생수
+from 대학생
+```
+**group by**
+
+ group by 뒤에 나오는 속성을 기준으로 튜플들을 구릅화 한다.
+
+ ```
+ select 소속부서 as 부서명, count(*) as 직원수
+ from 직원
+ group by 소속부서
+ ```
+
+ **having**
+
+ 각 그룹에 대한 검색 조건을 기술하는 부분, group by가 생략되면 릴레이션 튜플 전체를 하나의 그룹으로 취급한다.
+
+ ```
+ select 소속부서 as 부서명, count(*) as 직원수
+ from 직원
+ group by 소속부서
+ having count(*) >= 3
+ ```
+
+ **like**
+
+ Where 옆에 붙어서 와일드 카드로 문자열을 더 자세한 조건으로 검색한다.
+
+ - 총% : 맨앞에 총을 포함하는 문자열
+ - 밑줄 _ : 문자 하나
+
+ **exists**
+
+ where 옆에 붙는다. 한 릴레이션 튜플이 검색된 릴레이션 테이블에 존재하는지 조건을 기숧한다.
+
+ ```
+ SELECT column_name(s)
+FROM table_name
+WHERE EXISTS
+(SELECT column_name FROM table_name WHERE condition);
+[출처](https://www.w3schools.com/sql/sql_exists.asp)
+ ```
+**in**
+
+where 옆에 사용, exists와 유사 하지만 in은 튜플이 아니라 속성을 따진다.
+
+**insert**
+
+```
+insert
+into 테이블
+values(v1, v2...)
+```
+
+ 복수 튜플 삽입예
+
+ ```
+ insert
+ into 테이블1
+ select *
+ from 테이블2
+ ```
+
+ **update**
+
+ A를 필드명, V를 새로운 값이라 할때
+
+ ```
+ update 테이블명
+ set A1=V1, A2=V2, An=Vn
+ where 조건 //생략가능
+ ```
+
+ **delete**
+
+ ```
+ delete
+ from 테이블
+ where 조건 //생략하면 모든 튜플 삭제
+ ```
+
+ ## view
+
+ 데이터베이스에 존재하는 하나 이상의 릴레이션들을 가지고 각 릴레이션의 일부 또는 전부를 이용하여 새롭게 생성된 일종의 릴레이션 테이블을 말한다. 뷰는 일반 릴레이션과 같이 select문을 사용할수 있으나 insert, update, delete는 제한적으로 사용된다.
+
+ 뷰는 데이터베이스 내부에서 뷰를 구성하는 튜플, 테이블을 갖지 않는다. 단지 데이터베이스 내부에서는 뷰를 구성하는데 이용된 기존 릴레이션들간의 뷰 생성 관계만 저장되어 있다가 뷰를 이용한 검색이나 조작 연산이 이루어 질 때 이 뷰 생성 관계를 이용하여 비로서 뷰의 튜플이 구성된다.
+
+뷰는 정의를 변경할 수 없다.
+ **뷰 생성**
+
+ ```
+ create view 뷰이름 as 베이스 릴레이션
+ ```
+
+ **뷰 삭제**
+
+뷰를 가지고 또 뷰를 만들수도 있는데 이떄 종속적인 관계를 어떻게 다룰 거냐에 따라 두가지로 나뉜다. 아래는 종속성이 발견되면 삭제를 취소한다.
+ ```
+ drop view 뷰이름 restrict
+ ```
+ 다음은 종속성있는 뷰를 모두 연속 삭제한다.
+ ```
+ drop view 뷰이름 cascade
+ ```
+
+ ### 뷰의 장점
+
+ - 논리적 데이터 독립성을 어느정도 제공한다. 뷰 정의에 사용된 릴레이션에 컬럼이 추가된다던지 다른 릴레이션이 추가되더라도 응용프로그램이나 사용자는 아무런 영향을 받지 않는다.
+ - 데이터 접근을 제어함으로서 보안을 제공한다.
+ - 여러 사용자의 상이한 응용이나 요구사항을 지원해 준다. 하나의 릴레이션을 가지고 서로 다른 여러개의 뷰를 정의하여 사용자의 요구에 따라 활용할 수 있도록 할 수 있다.
+
+ ### 뷰의 단점
+
+- 뷰는 정의를 변경할 수 없다.
+- 뷰는 삽입, 삭제, 갱신 연산에 많은 제한을 갖고있다.
