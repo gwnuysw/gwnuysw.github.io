@@ -148,7 +148,7 @@ spam.df<-transform(spam.df, density=spam.density,occurrence=spam.occurrence)
 ```
 easyham.docs<-dir(easyham.path)
 easyham.docs<-easyham.docs[which(easyham.docs!="cmds")]
-all.easyham<-sapply(easyhamocs, function(p) get.msg(paste(easyham.path,p,sep="/")))
+all.easyham<-sapply(easyham.docs, function(p) get.msg(paste(easyham.path,p,sep="/")))
 easyham.tdm<-get.tdm(all.easyham)
 easyham.matrix <- as.matrix(easyham.tdm)
 easyham.counts<-rowSums(easyham.matrix)
@@ -156,8 +156,8 @@ easyham.df<-data.frame(cbind(names(easyham.counts),as.numeric(easyham.counts)),s
 names(easyham.df)<-c("term", "frequency")
 easyham.df$frequency<-as.numeric(easyham.df$frequency)
 easyham.occurrence<-sapply(1:nrow(easyham.matrix), function(i){
-+    length(which(spam.matrix[i,]>0))/ncol(spam.matrix)
-+ })
+  length(which(spam.matrix[i,]>0))/ncol(spam.matrix)
+})
 easyham.density<-easyham.df$frequency/sum(easyham.df$frequency)
 easyham.df<-transform(easyham.df, density=easyham.density,occurrence=easyham.occurrence)
 
@@ -194,7 +194,7 @@ hardham.docs<-dir(hardham.path)
 hardham.docs<-hardham.docs[which(hardham.docs!="cmds")]
 hardham.spamtest<-sapply(hardham.docs, function(p) classify.email(paste(hardham.path,p,sep="/"),training.df=spam.df))
 hardham.hamtest<-sapply(hardham.docs, function(p) classify.email(paste(hardham.path,p,sep="/"),training.df=easyham.df))
-hardham.res<-ifelse(harham.spamtest > hardham.hamtest,TRUE,FALSE)
+hardham.res<-ifelse(hardham.spamtest > hardham.hamtest,TRUE,FALSE)
 summary(hardham.res)
 ```
 
