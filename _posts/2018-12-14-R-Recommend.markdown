@@ -37,19 +37,19 @@ watch.movies.matrix<-read.csv("movieReserch.csv")
 제가 데이터 파일을 저장한 경로와 데이터를 읽는 과정입니다.
 설문 결과 다음과 같이 얻어진 데이터를
 
-![데이터 가공전 설문 결과]()
+![데이터 가공전 설문 결과](https://github.com/gwnuysw/gwnuysw.github.io/blob/master/_images/homeworks/R_recommend/firstData.png?raw=true)
 
 다음과 같이 변경하고 .csv파일로 저장 했습니다.
 
-![데이터 가공후 설문 결과]()
+![데이터 가공후 설문 결과](https://github.com/gwnuysw/gwnuysw.github.io/blob/master/_images/homeworks/R_recommend/fixedData.png?raw=true)
 
 그런데 R에서 매트릭스에는 1번 열에 열번호를 이미 포함하고 있기 때문에 .csv파일에 1번열은 필요가 없어졌습니다. 그래서 1번열을 지워줍니다.
 ```
 watch.movies.matrix<-watch.movies.matrix[,-1]
 ```
-![제거전]()
+![제거전](https://github.com/gwnuysw/gwnuysw.github.io/blob/master/_images/homeworks/R_recommend/beforeRemoveFirstColumn.png?raw=true)
 
-![제거후]()
+![제거후](https://github.com/gwnuysw/gwnuysw.github.io/blob/master/_images/homeworks/R_recommend/removeFirstColumn.png?raw=true)
 
 ## kNN 추천 시스템 만들기
 
@@ -60,13 +60,9 @@ similarities<-cor(watch.movies.matrix)
 ```
 열사이의 상관 계수를 구합니다.
 
-![원령공주와 원령공주]()
+![원령공주와 원령공주, 인셉션](https://github.com/gwnuysw/gwnuysw.github.io/blob/master/_images/homeworks/R_recommend/momonoke.png?raw=true)
 
-원령공주와 원령공주는 똑같은 영화이기 떄문에 유사도가 1입니다.
-
-![원령공주와 인셉션]()
-
-원령공주와 인셉션은 조금이지만 서로 음의 관계라고 나옵니다.
+원령공주와 원령공주는 똑같은 영화이기 떄문에 유사도가 1입니다. 원령공주와 인셉션은 조금이지만 서로 음의 관계라고 나옵니다.
 
 **거리구하기**
 
@@ -75,7 +71,7 @@ similarities<-cor(watch.movies.matrix)
 distances<- -log((similarities/2)+0.5)
 ```
 
-![각영화와 원령공주와의 거리]()
+![각영화와 원령공주와의 거리](https://github.com/gwnuysw/gwnuysw.github.io/blob/master/_images/homeworks/R_recommend/momonokeDist.png?raw=true)
 
 **추천하기**
 
@@ -119,9 +115,9 @@ colnames(watch.movies.matrix)[listing[1:14]]
 
 ![자기 번호 찾기]()
 
-![추천결과1]()
+![추천결과1](https://github.com/gwnuysw/gwnuysw.github.io/blob/master/_images/homeworks/R_recommend/recommand1.png?raw=true)
 
-![추천결과2]()
+![추천결과2](https://github.com/gwnuysw/gwnuysw.github.io/blob/master/_images/homeworks/R_recommend/recommand2.png?raw=true)
 
 ## 군집화 하기
 
@@ -140,4 +136,4 @@ text(ex.mds, c('SeokW','JuY', 'YeonT', 'prof', 'KyuH', 'KiW', 'JiH', 'SungM', 'I
 ```
 
 
-![군집화 결과]()
+![군집화 결과](https://github.com/gwnuysw/gwnuysw.github.io/blob/master/_images/homeworks/R_recommend/clustering.png?raw=true)
