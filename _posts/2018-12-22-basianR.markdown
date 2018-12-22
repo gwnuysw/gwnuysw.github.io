@@ -1,0 +1,54 @@
+---
+layout: post
+title:  "논문 발표 후기"
+date:   2018-12-22 15:37:00 +0900
+categories: jekyll update
+comments : true
+---
+
+지난 11월 30일 한국 정보 기술 학회 대학생 논문 경진대회에 참가한 후기입니다. 벌써 발표하고 온지도 한달이 되었다니 시간 정말 빠릅니다.
+
+데이터 마이닝 강의시간에 배운것 베이즈 정리를 토대로 실생활에 적용하고 그 결과물을 논문으로 제출했는데요, 저희조는 '신문 기사를 분석해서 어떤 단어에 따라 기사의 인기가 정해지는것이 있는가'를 찾아보려고 했습니다.
+
+- [깃페이지](https://github.com/gwnuysw/PoliticsTrendDM)
+
+  저희가 작업하면서 이용한 깃페이지 이구요
+
+- [깃위키](https://github.com/gwnuysw/PoliticsTrendDM/wiki)
+
+  이건 작업 일지 비슷한 겁니다.
+
+- [R소스코드](https://github.com/gwnuysw/PoliticsTrendDM/wiki/%EB%8B%A4%EC%8B%9C%EA%B5%90%EC%9E%AC%EB%A1%9C)
+
+  여기 다시 교재로 라는 위키 페이지의 맨 밑에 보면 R전체 소스코드를 남겨놨습니다.
+
+## 논문내용
+
+논문은 [dbpia](http://www.dbpia.co.kr/Journal/ArticleDetail/NODE07577958?TotalCount=200&Seq=2&q=%5B%EC%9D%B8%EA%B8%B0%20%EA%B8%B0%EC%82%AC%C2%A7coldb%C2%A72%C2%A751%C2%A73%5D&searchWord=%EC%A0%84%EC%B2%B4%3D%5E%24%EC%9D%B8%EA%B8%B0%20%EA%B8%B0%EC%82%AC%5E*&Multimedia=0&isIdentifyAuthor=0&Collection=0&SearchAll=%EC%9D%B8%EA%B8%B0%20%EA%B8%B0%EC%82%AC&isFullText=0&specificParam=0&SearchMethod=0&Sort=1&SortType=desc&Page=1&PageSize=20#)라는 사이트에서 보실 수 있지만 하나 하나 캡처 했습니다. 저작권은 원저작자에게 있다고 하니...
+
+![캡처1](https://github.com/gwnuysw/PoliticsTrendDM/blob/master/capture2/p1.png?raw=true)
+
+![캡처2](https://github.com/gwnuysw/PoliticsTrendDM/blob/master/capture2/p2.png?raw=true)
+
+![캡처3](https://github.com/gwnuysw/PoliticsTrendDM/blob/master/capture2/p3.png?raw=true)
+
+![캡처4](https://github.com/gwnuysw/PoliticsTrendDM/blob/master/capture2/p5.png?raw=true)
+
+![캡처5](https://github.com/gwnuysw/PoliticsTrendDM/blob/master/capture2/p5.png?raw=true)
+
+![캡처6](https://github.com/gwnuysw/PoliticsTrendDM/blob/master/capture2/p6.png?raw=true)
+
+![캡처7](https://github.com/gwnuysw/PoliticsTrendDM/blob/master/capture2/p7.png?raw=true)
+
+![캡처8](https://github.com/gwnuysw/PoliticsTrendDM/blob/master/capture2/p8.png?raw=true)
+
+## 발표
+
+![발표1](https://github.com/gwnuysw/PoliticsTrendDM/blob/master/capture2/frontPresentation.jpg?raw=true)
+
+![발표2](https://github.com/gwnuysw/PoliticsTrendDM/blob/master/capture2/frontState.jpg?raw=true)
+
+![발표3](https://github.com/gwnuysw/PoliticsTrendDM/blob/master/capture2/1545453729898.jpg?raw=true)
+
+숙명여대까지 가서 발표 했습니다. 참가상으로 동상과 부상으로 문상 하나 받았고, 학교 주변에 맛있는 밥집이 많이 있는게 조금 부럽네요...
+아 가서 상품??같은 거로 한팀당 USB하나랑 가습기 하나가 있는데 저희는 하나 더 꼬려서 USB 두개, 가습기 두개, 문상하나를 다섯명이서 사이좋게 나눠 가졌습니다. 여러모로 즐거운 한 학기였네요. 그리고 팀웤은 항상 신뢰가 바탕이 되어야 한다는 것을 되새기게 되었습니다.
