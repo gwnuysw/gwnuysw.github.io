@@ -115,4 +115,5 @@ var FavoriteMovie = function movie(){
 ### inline function expression
 
 함수의 인자로 함수의 선언을 작성 할 수 있는데 이를 inline function expression 이라고 합니다. 그러면 함수의 매개변수가 바로 function expression이 되는 것입니다. 또한 inline function expression은 무명 함수 일 수도 있습니다.
+
 참조(reference) : udacity
