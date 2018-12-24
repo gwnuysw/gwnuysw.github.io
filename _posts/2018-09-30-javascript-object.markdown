@@ -71,6 +71,4 @@ console.log(rose.z);
 >
 >3
 
-
-
 모든 object는 'Object'프로토타입이라는 공통 조상을 가집니다.
