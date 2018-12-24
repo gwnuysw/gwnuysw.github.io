@@ -30,11 +30,11 @@ name[0];
 
 |code|Character|
 |----|---------|
-|\\\\|\\(backslash)|
-|\"|"(double quote)|
-|\'|\(single quote)|
-|\n|new line|
-|\t|tab|
+|\\\\ | \\(backslash)|
+|\" | "(double quote)|
+|\' | '(single quote)|
+|\n | new line|
+|\t | tab|
 
 ---
 # null, undefined, NaN
