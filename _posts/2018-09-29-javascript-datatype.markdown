@@ -31,7 +31,7 @@ name[0];
 |code|Character|
 |----|---------|
 |\\\\ | \\(backslash)|
-|\" | "(double quote)|
+|\\" | "(double quote)|
 |\' | '(single quote)|
 |\n | new line|
 |\t | tab|
