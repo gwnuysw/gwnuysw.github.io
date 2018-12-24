@@ -28,7 +28,6 @@ var obj = {
 
 ## ongoing look-up time delegation
 
-
 ```
 var gold = {a:1};
 
@@ -55,6 +54,7 @@ rose.a는 gold.a를 참조하며 rose.b는 gold.b에 없다.
 ![Prototype chain](https://github.com/gwnuysw/gwnuysw.github.io/blob/master/_images/javascript/prototype_chain.png?raw=true)
 
 반대로 참조되고 있는 오브젝트의 프로퍼티를 추가한 경우
+
 ```
 var gold = {a:1};
 
