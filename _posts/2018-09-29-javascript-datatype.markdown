@@ -32,7 +32,7 @@ name[0];
 |----|---------|
 |\\\\ | \\(backslash)|
 |\\" | "(double quote)|
-|\' | '(single quote)|
+|\\' | '(single quote)|
 |\n | new line|
 |\t | tab|
 
