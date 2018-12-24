@@ -30,7 +30,7 @@ name[0];
 
 |code|Character|
 |----|---------|
-|\\\|\\(backslash)|
+|\\\\|\\(backslash)|
 |\"|"(double quote)|
 |\'|\(single quote)|
 |\n|new line|

@@ -6,6 +6,7 @@ categories: jekyll update
 comments : true
 ---
 
+
 # Truthy and falsy
 
 자바스크립트의 모든 변수값은 boolean정보가 내포되어있습니다.
