@@ -23,10 +23,9 @@ comments : true
 **truty value**
 
 1. 0 , 0.0 을 제외한그냥 숫자
-2. 문자열안에 문자가있을때 "null", "indefined"모두 true
+2. 문자열안에 문자가있을때 "null", "undefined"모두 true
 3. 중괄호와 대괄호안에 아무것도 없어도 truthy {}, []
 
----
 **switch**
 
 자바스크립트의 switch 문은 c언어에서와 유사하게 break문과 default문이 있다. break 문을 사용하지 않는다면 falling-thruogh된다.

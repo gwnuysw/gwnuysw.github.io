@@ -32,7 +32,7 @@ sagas[0]();
 sagas[0]();
 newSaga();
 ```
-sagas[0]();함수는 newSaga();가 종료되고 리턴됬는데도 해당 스코프에 접근하고 있다.
+sagas[0]\();함수는 newSaga();가 종료되고 리턴됬는데도 해당 스코프에 접근하고 있다.
 
 ---
 # 호이스팅(hoisting)
@@ -46,6 +46,15 @@ function sayHi(name) {
   var greeting;
 }
 ```
+위 코드는 아래와 같이 재배치 된다.
+```
+function sayHi(name) {
+  var greeting;
+  console.log(greeting + " " + name);
+}
+
+sayHi("Julia");
+```
 >Returns: undefined julia
 
 ```
@@ -56,8 +65,18 @@ function sayHi(name) {
   var greeting = "Hello";
 }
 ```
+위 코드는 아래와 같이 재배치 된다.
+```
+function sayHi(name) {
+  console.log(greeting + " " + name);
+  var greeting = "Hello";
+}
+
+sayHi("Julia");
+```
 >Returns: undefined julia
 
+다음은 의도대로 정상 실행 되는 경우다.
 ```
 function sayHi(name) {
   var greeting = "Hello";
@@ -81,11 +100,11 @@ var catSays = function(max) {
 
 Function Expression은 변수에 assign 연산자가 있기 때문에 호이스팅 되지 않습니다.
 
-## callback
+### callback
 
-변수에 assign된 함수는 다른함수의 인자로 넘겨주기 쉽습니다. 이렇게 다른 함수에 넘겨진 함수를 callback이라고 합니다.
+변수에 assign된 함수는 다른함수의 인자로 넘겨주기 쉽습니다. 이렇게 다른 함수에 인자로 넘겨진 함수를 callback이라고 합니다.
 
-## 이름있는 function expression
+### 이름있는 function expression
 function expression의 함수 이름을 지정할 수 있지만 변수이름으로만 호출가능하고 함수이름으로 호출할 수는 없습니다.
 ```
 var FavoriteMovie = function movie(){
@@ -93,7 +112,7 @@ var FavoriteMovie = function movie(){
 };
 ```
 
-## inline function expression
+### inline function expression
 
 함수의 인자로 함수의 선언을 작성 할 수 있는데 이를 inline function expression 이라고 합니다. 그러면 함수의 매개변수가 바로 function expression이 되는 것입니다. 또한 inline function expression은 무명 함수 일 수도 있습니다.
 참조(reference) : udacity
