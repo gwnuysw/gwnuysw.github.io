@@ -16,7 +16,7 @@ vlan 이란 한대의 스위치를 마치 여러 대의 분리된 스위치 처�
 위 그림에 하나의 스위치에 두개의 다른 색갈로 포트가 구분 되는데 이는 브로드 캐스트 도메인이 두가지 라는 뜻입니다. vlan은 네트워크 구성 변경을 쉽게 하기 위해서 등장한 기술입니다.
 
 
-![no vlan](https://github.com/gwnuysw/gwnuysw.github.io/blob/master/_images/packetTracer/pt2/VLAN-Grundlagen-Beispiel-2.png?raw=true)
+![no vlan](https://github.com/gwnuysw/gwnuysw.github.io/blob/master/_images/packetTracer/pt2/VLAN-Grundlagen-Beispiel-2.png?raw=true  )
 
 (그림 2)
 
@@ -24,7 +24,7 @@ vlan 이란 한대의 스위치를 마치 여러 대의 분리된 스위치 처�
 
 ### 트렁크 포트 Trunk port
 
-라우터와 스위치, 스위치와 스위치 간에 정보교환은 그림 1상에서 포트 8번을 통해 이루어 집니다. 이를 트렁크 포트(Trunk port)라고 하는데 이 포트를 통해 각각의 VLAN정보가 한꺼번에 전송됩니다. 그래서 8번 포트 색깔이 초록색과 주황색이 섞여있는 모습입니다. **단, 같은 스위치 라도 서로 다른 vlan과의 통신은 라우터를 만드시 거쳐야 합니다.** 트렁킹 할때 각 데이터에 해당하는 VLAN 이름표를 붙이는데 CISCO에서 사용하는 방식인 ISL과 산업표준인 IEEE802.1Q 방식이 있습니다.
+라우터와 스위치, 스위치와 스위치 간에 정보교환은 그림 1상에서 포트 8번을 통해 이루어 집니다. 이를 트렁크 포트(Trunk port)라고 하는데 이 포트를 통해 각각의 VLAN정보가 한꺼번에 전송됩니다. 그래서 8번 포트 색깔이 초록색과 주황색이 섞여있는 모습입니다. **단, 같은 스위치 라도 서로 다른 vlan과의 통신은 라우터를 반드시 거쳐야 합니다.** 트렁킹 할때 각 데이터에 해당하는 VLAN 이름표를 붙이는데 CISCO에서 사용하는 방식인 ISL과 산업표준인 IEEE802.1Q 방식이 있습니다.
 
 ### Native VLAN
 IEEE802.1Q 방식에서 native VLAN이란 것을 사용 합니다. 패킷에 VLAN정보를 붙이지 않고 보내는 VLAN으로 모든 스위치 네트워크에서 유일하게 한개의 VLAN만 native VLAN으로 세팅 할수 있습니다.
