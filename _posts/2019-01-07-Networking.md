@@ -16,7 +16,7 @@ vlan 이란 한대의 스위치를 마치 여러 대의 분리된 스위치 처�
 위 그림에 하나의 스위치에 두개의 다른 색갈로 포트가 구분 되는데 이는 브로드 캐스트 도메인이 두가지 라는 뜻입니다. vlan은 네트워크 구성 변경을 쉽게 하기 위해서 등장한 기술입니다.
 
 
-![no vlan]()
+![no vlan](https://github.com/gwnuysw/gwnuysw.github.io/blob/master/_images/packetTracer/pt2/VLAN-Grundlagen-Beispiel-2.png?raw=true)
 
 (그림 2)
 
