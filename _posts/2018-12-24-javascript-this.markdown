@@ -107,7 +107,7 @@ setTimeout(fn, 1000);
 setTimeout(r.method, 1000);
 ```
 이경우도 node에서의 실행과 크롬브라우저에서의 실행 결과가 조금 다릅니다. 노드에서는 Timeout object가 this에 바운드 되고
->Timeout {
+> Timeout {
   _called: true,
   _idleTimeout: 1000,
   _idlePrev: null,
@@ -122,7 +122,7 @@ setTimeout(r.method, 1000);
 
 
 크롬 브라우저에서는 global object가 this에 바운드됩니다.
->Window {postMessage: ƒ, blur: ƒ...(중략)... undefined undefined
+> Window {postMessage: ƒ, blur: ƒ...(중략)... undefined undefined
 
 
 **다섯째**
@@ -133,7 +133,7 @@ setTimeout(function(){
   r.method(g, b)
 }, 1000);
 ```
->{ red: 'red', method: [Function: fn] } { green: 'green' } { blue: 'blue' }
+> { red: 'red', method: [Function: fn] } { green: 'green' } { blue: 'blue' }
 
 명확하게 점 연산자 다음 r객체가 있습니다.
 
@@ -143,4 +143,8 @@ setTimeout(function(){
 new r.method(g,b);
 ```
 new 키워드는 새로운 object를 만들기 때문에 this는 이 새로운 object에 바운드 된다고 합니다. 그런데 앞에 붙는 fn은 무슨 의미인지 모르겠네요
->fn {} { green: 'green' } { blue: 'blue' }
+> fn {} { green: 'green' } { blue: 'blue' }
+
+
+예전에 제가 작성했던 gist문서입니다. 열심히 써놓고 깜빡하고 있었네요
+[https://gist.github.com/gwnuysw/4c1ea3e9be9adb11381c62ef3bdc6acc](https://gist.github.com/gwnuysw/4c1ea3e9be9adb11381c62ef3bdc6acc)
