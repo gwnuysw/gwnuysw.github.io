@@ -11,7 +11,7 @@ comments : true
 (출처 : https://blog.boxcorea.com/wp/archives/2104)
 
 
-![내 캡처]()
+![내 캡처](https://github.com/gwnuysw/gwnuysw.github.io/blob/master/_images/packetTracer/vlan/%EC%A0%84%EC%B2%B4%EA%B5%AC%EB%8F%84.png?raw=true)
 
 이번 시간은 위와같은 vlan을 구성해 볼겁니다. 스위치, 라우터, PC구성을 차례로 해주어야 합니다.
 
@@ -138,13 +138,22 @@ Router(config-subif)#end
 
 **브로드 캐스팅**
 
-![boradcasting1]()
-![boradcasting2]()
-![boradcasting3]()
-![boradcasting4]()
+### fox
+![boradcasting1](https://github.com/gwnuysw/gwnuysw.github.io/blob/master/_images/packetTracer/vlan/broadcast1.png?raw=true)
+![boradcasting2](https://github.com/gwnuysw/gwnuysw.github.io/blob/master/_images/packetTracer/vlan/broadcast2.png?raw=true)
 
+### cat
+![boradcasting3](https://github.com/gwnuysw/gwnuysw.github.io/blob/master/_images/packetTracer/vlan/broadcast3.png?raw=true)
+![boradcasting4](https://github.com/gwnuysw/gwnuysw.github.io/blob/master/_images/packetTracer/vlan/broadcast4.png?raw=true)
+
+스위치에서 해당하는 vlan으로만 브로드캐스틍을 해줍니다.
 **그냥 한놈한테 보내기**
 
-![pc2topc0-1]()
-![pc2topc0-2]()
-![pc2topc0-3]()
+![pc2topc0-1](https://github.com/gwnuysw/gwnuysw.github.io/blob/master/_images/packetTracer/vlan/Screenshot%20from%202019-01-08%2011-55-01.png?raw=true)
+![pc2topc0-2](https://github.com/gwnuysw/gwnuysw.github.io/blob/master/_images/packetTracer/vlan/Screenshot%20from%202019-01-08%2011-55-07.png?raw=true)
+![pc2topc0-3](https://github.com/gwnuysw/gwnuysw.github.io/blob/master/_images/packetTracer/vlan/Screenshot%20from%202019-01-08%2011-55-19.png?raw=true)
+
+직접 해보시면 알곗지만 브로드캐스팅과 다르게 패킷이 라우터까지 도달한후 라우터에서 목적지로 갑니다.
+
+
+참고 : https://blog.boxcorea.com/wp/archives/2104 여기 보고 따라했습니다. 다른 포스팅도 해봤는데 브로드캐스팅은 잘되고 서로다른 vlan간의 통신은 안돼는 경우가 많더라구요 근데 이건 브로드캐스팅과 vlan간 통신이 잘 이루어 졌습니다.
