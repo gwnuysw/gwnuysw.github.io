@@ -84,4 +84,32 @@ Router(config-router)#network 203.240.100.0
 ```
 저렇게 `router rip`로 rip구성 모드로 들어가서 `network network-number`만 차례로 입력해 주면 끝입니다!! 주의할점은 서브네트워크 번호를 입력해야 한다는 것입니다.
 
+RIP가 제대로 동작하는지 확인하려면 명령어를 다음과 같이 입력합니다.
+```
+Router#sh ip route
+Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2, E - EGP
+       i - IS-IS, L1 - IS-IS level-1, L2 - IS-IS level-2, ia - IS-IS inter area
+       * - candidate default, U - per-user static route, o - ODR
+       P - periodic downloaded static route
+
+Gateway of last resort is not set
+
+R    192.168.130.0/24 [120/1] via 203.240.250.2, 00:00:09, Serial0/0/1
+     203.240.100.0/24 is variably subnetted, 2 subnets, 2 masks
+C       203.240.100.0/24 is directly connected, GigabitEthernet0/0
+L       203.240.100.1/32 is directly connected, GigabitEthernet0/0
+     203.240.150.0/24 is variably subnetted, 2 subnets, 2 masks
+C       203.240.150.0/24 is directly connected, Serial0/0/0
+L       203.240.150.1/32 is directly connected, Serial0/0/0
+R    203.240.200.0/24 [120/1] via 203.240.150.2, 00:00:10, Serial0/0/0
+     203.240.250.0/24 is variably subnetted, 2 subnets, 2 masks
+C       203.240.250.0/24 is directly connected, Serial0/0/1
+L       203.240.250.1/32 is directly connected, Serial0/0/1
+```
+
+이렇게 뭐가 주루룩 뜨는데 거기서 왼쪽에 R이라는 태그가 붙은 행이 RIP를통해 구한 경로를 나타냅니다. RIP가 제대로 안됀다면 R이 붙은 행이 없습니다.
+
 이것이 rip구성 전부 입니다. 그리고 제가 잘 모르겠는점은 왼쪽 라우터의 Gig0/0 주소만 192.168.130.xxx 입니다. 처음엔 다른 주소들과 같은 형식으로 203.240.350.xxx를 입력하려고 했지만 불가능한 주소라고 자꾸떠서 다르게 설정 했습니다. 아시는분 댓글 남겨주세요~
