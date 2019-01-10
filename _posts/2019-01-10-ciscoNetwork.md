@@ -22,7 +22,7 @@ RIP는 라우터가 디스턴스 벡터를 관리하며 목적지 까지 가장 
 
 ## 직접 해보기
 
-![전체 구도]()
+![전체 구도](https://github.com/gwnuysw/gwnuysw.github.io/blob/master/_images/packetTracer/rip/%EC%A0%84%EC%B2%B4%EA%B5%AC%EB%8F%84.png?raw=true)
 
 - 라우터 : 2901 3대
 - 스위치 : 2960 3대
