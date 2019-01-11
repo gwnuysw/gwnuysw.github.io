@@ -17,7 +17,7 @@ RIP의 여러 단점들이 있었습니다.
 
 ## 직접 해보기
 
-![전체 구도]()
+![전체 구도](https://github.com/gwnuysw/gwnuysw.github.io/blob/master/_images/packetTracer/igrp/%EC%A0%84%EC%B2%B4%EA%B5%AC%EB%8F%84.png?raw=true)
 
 네트워크 모양은 지난 시간 RIP와 같습니다. 또한 설정 명령어 역시 RIP와 상당히 비슷합니다.
 
