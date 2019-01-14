@@ -50,7 +50,7 @@ priority나 라우터 ID모두 OSPF패킷에 들어 있는 정보들입니다. p
 
 ## 직접 해보기
 
-![전체 구도]()
+![전체 구도](https://github.com/gwnuysw/gwnuysw.github.io/blob/master/_images/packetTracer/ospf%EC%A7%81%EC%A0%91%ED%95%B4%EB%B3%B4%EA%B8%B0.png?raw=true)
 
 명령어가 너무 간단 합니다. 똑똑한 프로토콜일수록 구성도 간단해 집니다.
 
