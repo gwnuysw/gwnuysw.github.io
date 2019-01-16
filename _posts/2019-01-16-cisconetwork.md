@@ -12,7 +12,7 @@ HSRP를 이용하기 위해서는 가상의 ip를 사용합니다.
 
 ## 직접 해보기
 
-![hsrp전체 구도]()
+![hsrp전체 구도](https://github.com/gwnuysw/gwnuysw.github.io/blob/master/_images/packetTracer/hsrp%EC%A0%84%EC%B2%B4%EA%B5%AC%EB%8F%84.png?raw=true)
 
 이 네트워크는 지난번 rip네트워크를 조금 변경했습니다. 따라서 라우터 마다 rip설정은 그대로 있어야 합니다.
 
@@ -44,6 +44,7 @@ HSRP를 이용하기 위해서는 가상의 ip를 사용합니다.
 라우터설정은 왼쪽, 오른쪽 두개 라우터에서만 해주면 됩니다. 우선 왼쪽라우터 부터 보면,
 ```
 Router(conf)#int gig0/0
+Router(config-if)#ip address 172.70.100.2 255.255.255.0
 Router(config-if)#standby 1 timers 3 10
 Router(config-if)#standby 1 priority 105
 Router(config-if)#standby 1 preempt
@@ -90,3 +91,5 @@ Router(config-router)#
 Router(config-router)#end
 ```
 분명 서브넷 마스크를 /24로 줬는데 이렇게 해도 잘 되더라구요
+
+![실행화면]()
