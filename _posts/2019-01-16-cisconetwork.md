@@ -92,4 +92,6 @@ Router(config-router)#end
 ```
 분명 서브넷 마스크를 /24로 줬는데 이렇게 해도 잘 되더라구요
 
-![실행화면]()
+![실행화면](https://github.com/gwnuysw/gwnuysw.github.io/blob/master/_images/packetTracer/hsrp1.png?raw=true)
+
+시리얼 한쪽을 잘라서 해봤는데 처음엔 됐다가 지금 안돼네요...뭐 시뮬레이터를 100% 신뢰할 수는 없으니까 한번 됐으면 된거겠죠?
