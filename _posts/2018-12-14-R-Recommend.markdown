@@ -113,8 +113,6 @@ listing<-most.probable.movies(1, watch.movies.matrix, distances)
 colnames(watch.movies.matrix)[listing[1:14]]
 ```
 
-![자기 번호 찾기]()
-
 ![추천결과1](https://github.com/gwnuysw/gwnuysw.github.io/blob/master/_images/homeworks/R_recommend/recommand1.png?raw=true)
 
 ![추천결과2](https://github.com/gwnuysw/gwnuysw.github.io/blob/master/_images/homeworks/R_recommend/recommand2.png?raw=true)
