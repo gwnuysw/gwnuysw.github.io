@@ -6,7 +6,7 @@ categories: jekyll update
 comments : true
 ---
 
-# 소개
+## 소개
 
 [자바스크립트의 역사](https://wit.nts-corp.com/2014/08/13/1925)
 
@@ -26,6 +26,7 @@ comments : true
 3. [자바스크립트의 함수](https://gwnuysw.github.io/jekyll/update/2018/09/29/javascript_function.html)
 4. [자바스크립트의 this, arguments](https://gwnuysw.github.io/jekyll/update/2018/12/24/javascript-this.html)
 5. 클로저
+
 ## 함수가 핵심이다.
 
 자바스크립트는 **1종 객체(first-class Object)** 이다.
