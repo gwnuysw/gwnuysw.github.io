@@ -89,3 +89,5 @@ const Menu = () => {
 export default Menu;
 ```
 이렇게하면 페이지를 새로고침 하지않고 라우트 이동이 가능하다.
+
+참고 : https://velopert.com/3417

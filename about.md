@@ -8,17 +8,10 @@ comment: true
 ## 정보
 
 - 이석원
-- 특기는 청소
-- 취미는 독서
-
-## 역사
-
-- 1995년 10월 14일 출생
-- 양주 덕현 초등학교 2008년 졸업
-- 양주 덕현 중학교 2011년 졸업
-- 양주 고등학교 2014년 졸업
-- 5사단 2017년 전역
-- 강릉원주대학교 컴퓨터 공학과 2020년 졸업 예정
+- 1995.10.14일생
+- 최고가 아닌 최선, 내게 주어진 것에 만족하자
+- [트위터](https://twitter.com/?lang=ko)
+- [깃헙](https://github.com/gwnuysw)
 
 ## 관심사
 
@@ -27,8 +20,14 @@ comment: true
 - 니체
 - 도스토옙스키
 - 지브리만화
-- ONE(만화가) 만화
-- 알폰소 쿠알로 영화와 그외 명작영화
+- 영화감상
 - Dota2
-- 다양한 사상과 음모론
 - 고전 소설
+- 한병철작가의 에세이
+
+## 내가 만든것들
+
+- [스마트 화분](https://github.com/gwnuysw/Smart-Flowerpod)
+- [학점계산시스템](https://github.com/gwnuysw/CreditManagementForGWNUcse)
+- [간단어셈블러](https://github.com/gwnuysw/Assembler)
+- [Linkabout](https://github.com/gwnuysw/Linkabout)
