@@ -16,9 +16,9 @@ meteor 공식 페이지에서 제공하는 튜토리얼중에 todo튜토리얼�
   - main.html
   - main.js
 - _imports_
- - api
- - startup
- - ui
+  - api
+  - startup
+  - ui
 - _server_
  - main.js
 - _tests_
