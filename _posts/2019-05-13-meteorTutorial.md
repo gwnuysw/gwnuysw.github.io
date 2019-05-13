@@ -417,3 +417,5 @@ describe("Linkabout", function () {
   }
 });
 ```
+
+> 참조 : https://www.meteor.com/tutorials/react/creating-an-app
