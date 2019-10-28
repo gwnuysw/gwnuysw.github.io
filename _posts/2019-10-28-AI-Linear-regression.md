@@ -12,7 +12,9 @@ comments : true
 
 (출처 : [웹페이지](https://minsgodrema.ga/5387))
 
-이런 데이터를 가장 잘 설명하는 선형 상관관계를 찾는 것
+Hypothesis `H(x) = Wx + b`
+
+데이터를 가장 잘 설명하는 선형 상관관계를 찾는 것
 
 선형회귀에서 선형이란 변수 x가 아니라 변수 x를 이용해 찾고자 하는 기울기나 절편 같은 것이 선형이란 것을 의미 합니다. 아래식은 모두 선형 회귀식입니다.
 
@@ -20,9 +22,6 @@ comments : true
 
 ![선형으로 보이게 바꾼것](https://github.com/gwnuysw/gwnuysw.github.io/blob/master/_images/2019_10_28/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202019-10-28%20%EC%98%A4%ED%9B%84%209.55.24.png?raw=true)
 
-Hypothesis
-
-`H(x) = Wx + b`
 
 ## 어떤 가설, 함수가 좋은지 어떻게 찾는가?
 
