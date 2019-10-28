@@ -26,11 +26,11 @@ comments : true
 
 예를 들면
 
-![고양이 사진]()
+![고양이 사진](https://github.com/gwnuysw/gwnuysw.github.io/blob/master/_images/2019_10_28/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202019-10-28%20%EC%98%A4%ED%9B%84%207.27.42.png?raw=true)
 
 각 사진들에 '고양이' 라고 하는 이름표를 붙이는 것이다.
 
-![강아지 사진]()
+![강아지 사진](https://github.com/gwnuysw/gwnuysw.github.io/blob/master/_images/2019_10_28/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202019-10-28%20%EC%98%A4%ED%9B%84%207.30.31.png?raw=true)
 
 강아지 사진도 마찬가지
 
