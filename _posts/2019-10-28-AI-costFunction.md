@@ -1,10 +1,11 @@
 ---
 layout: post
-title:  "Linear Regression의 const function"
+title:  "Linear Regression의 cost function"
 date:   2019-10-28 21:00:00 +0900
 categories: jekyll update
 comments : true
 ---
+
 ### Gradient descent algorithm
 
 ![cost function제곱](https://github.com/gwnuysw/gwnuysw.github.io/blob/master/_images/2019_10_28/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202019-10-28%20%EC%98%A4%ED%9B%84%208.49.28.png?raw=true)
