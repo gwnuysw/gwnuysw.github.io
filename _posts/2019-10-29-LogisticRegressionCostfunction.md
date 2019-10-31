@@ -6,7 +6,7 @@ categories: jekyll update
 comments : true
 ---
 
- 기존의 const function을 그대로 사용하면, Local Minum 이란 것 때문에 꼭지점을 찾기가 어렵다. 그래서 cost function을 다시 설계 해야 한다.
+ 기존의 const function을 그대로 사용하면, Local Minimum 이란 것 때문에 꼭지점을 찾기가 어렵다. 그래서 cost function을 다시 설계 해야 한다.
 
 ![시그모이드의 한계](https://github.com/gwnuysw/gwnuysw.github.io/blob/master/_images/2019_10_29/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202019-10-29%20%EC%98%A4%ED%9B%84%202.34.06.png?raw=true)
 
