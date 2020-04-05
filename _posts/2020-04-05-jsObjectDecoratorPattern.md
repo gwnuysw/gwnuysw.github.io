@@ -173,3 +173,34 @@ ben.move();
 ```
 
 이렇게 call 메소드를 이용하면 Car의 this는 Van이 this를 가리키게 된다. 그래서 Car함수를 호출 하더라도 Van함수와 같은 object 스코프를 가지게 된다. call메소드의 첫번째 매개변수가 호출된 함수의 this가 된다.
+
+### 메소드 상속
+
+```
+var Car = function(loc){
+  //this = Object.create(Car.prototype);
+  this.loc = loc;
+  //return this;
+};
+Car.prototype.move = function(){
+  this.loc++;
+};
+var Van = function(loc){
+  Car.call(this,loc);
+};
+Van.prototype = Object.create(Car.prototype);
+//Van.prototype.constructor = Van;
+Van.prototype.grab = function(){/*...*/}
+
+var amy = new Car(1);
+amy.move();
+var ben = new Van(9);
+console.log(ben.constructor)
+```
+이렇게 `Van.prototype`에 `Object.create(Car.prototype)`을 해줘야 메소드가 상속된다. 또한 constructor에 Van을 할당하지 않으면 constructor는 Car인 채로 남게 되기 때문에 꼭 써줘야 한다.
+
+## ES6
+
+ES6로 오면서 많은 것들이 더 편해졌습니다. 이것에 대해서 나중에 쓰죠/
+
+> 참조 : https://classroom.udacity.com/courses/ud015/lessons/2794468538/concepts/30222285750923
