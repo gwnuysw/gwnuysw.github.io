@@ -47,7 +47,7 @@ undefined
 
 ---
 
-## Object prototyp
+## Object prototype
 
 이런 식으로 모든 javascript의 object들은 최상위 object에 접근 할 수 있습니다. 대표적으로 `.toString()`이 있죠 toString() 말고 `constructor`라고 하는 최상위 method도 있습니다. constructor는 어떤 object가 만들어 질때 어떤 함수가 쓰였는지 알 수 있습니다.
 
