@@ -117,7 +117,13 @@ sayHi("Julia");
 
 # closure
 
-함수가 리턴된 뒤에도 스코프 접근이 가능한 모든 함수를 말한다.
+내부 함수가 외부 변수에 저장 되어서 외부 함수가 리턴된 뒤에도 접근 할 수 있는 외부 함수 스코프.
+이런 경우는
+1. passing to setTimeout
+2. 함수를 return할때
+3. 외부 변수에 함수를 저장할때
+
+가 있다.
 ```
 var outerValue = 'ninja';
 var later;
