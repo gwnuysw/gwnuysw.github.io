@@ -61,7 +61,7 @@ uipath가 터미널 화면 영역을 잡는 방법에는 두가지가 있다.
 
 주 터미널 액티비티고, 터미널 서버와의 연결을 관리한다. 터미널의 컨테이너라고 보면 된다. 디폴트로 액티비티가 종료하면 터미널의 연결도 끊어진다.(액티비티 종료하기전에 터미널 연결 끊는 작업을 따로 안해줘도 됌)
 
-- Connection String
+- Connection String : 커넥션 매개변수를 담고 있는데, 이 값은 연결 설정 하면 자동으로 만들어 진다.
 - OutputConnection : optional, 터미널 연결 변수, 터미널 종료후, 다른 터미널에 연결하는 것과 같은 상황에서 쓴다.
 - CloseConnection : ExistingConnection 속성과 함께 쓰인다. 터미널 섹션 액티비티 종료후에 연결이 종료 되었는지 알 수 있다.
 - ExistingConnection : TerminalConnection Type을 저장하는 변수
