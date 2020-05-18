@@ -73,3 +73,5 @@ Global Exception Handler에는 2 개의 사전 정의 된 인수가 있으므로
   - Retry : 예외를 발생한 액티비티를 다시 실행 합니다.
   - Abort : 실행을 정지합니다.
   - 위 네가지를 `ErrorAction.Retry`, `ErrorAction.Abort`같이 사용합니다.
+
+  참고 : uipath academy
