@@ -30,6 +30,7 @@ UiDemo라고 하는 출납원 신청이 있습니다. 트랜잭션 삽입 처리
 ### Credentials for UiDemo
 
 Username : admin
+
 Password : password
 
 출처 : https://academy.uipath.com/learningpath-viewer/1992/1/150802/2
