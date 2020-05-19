@@ -39,3 +39,5 @@ Transition에서 Trigger를 제일 먼저 실행하고 Condition을 평가합니
 4. State의 Exit실행
 5. Transition의 Exit실행
 6. 다른 State로 넘어감
+
+참고 : https://docs.uipath.com/studio/docs/state-machines
