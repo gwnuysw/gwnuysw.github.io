@@ -32,7 +32,7 @@ Linear process는 간단하고 사용하기도 쉽지만, 다른 데이터를 �
 
 **Transactional**
 
-Iterative 작업과 비슷합니다. 각 작업을 다른 데이터로 실행하지만 병렬로 실행한다는게 차이점 입니다. 따라서 어떤 작업에 문제가 생겨도 다른 작업은 정상적으로 실행합니다.
+Iterative 작업과 비슷합니다. 각 작업을 다른 데이터로 실행하지만 각 작업은 서로 영향없이 실행한다는게 차이점 입니다. 따라서 어떤 작업에 문제가 생겨도 다른 작업은 정상적으로 실행합니다.
 
 이런 반복 작업을 트랜잭션이라고 합니다. 각 작업은 데이터를 공유하지 않습니다.
 ![Transactional](https://html.cdn.contentraven.com/crcloud/crscorm/uploads/uipath_lms_11218/encryptedfile/149710/v3.0/scormcontent/assets/OhMEo4I89IVkOqAK_mIQa-UNPDYqPSY-e.jpg)
