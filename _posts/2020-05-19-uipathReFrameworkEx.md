@@ -38,6 +38,7 @@ Password : password
 제일 먼저 크게 두가지 워크플로로 나누어서 진행 합니다.
 
 - Dispatcher
+  - 원래 디스패터 로봇은 따로 만듭니다.
   - Dispatcher - UploadQueue.xaml 시퀀스 사용
   - Orchestrator item에 트랜잭션 데이터를 전송하는 역할을 합니다.
   - read range로 엑셀을 읽어서 for each row 안에서 add queue item을 사용합니다.
