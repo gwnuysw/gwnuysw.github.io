@@ -9,21 +9,13 @@ comment: true
 
 - 이석원
 - 1995.10.14일생
-- 최고가 아닌 최선, 내게 주어진 것에 만족하자
+- Your Life is your own
 - [트위터](https://twitter.com/?lang=ko)
 - [깃헙](https://github.com/gwnuysw)
 
 ## 관심사
 
-- 컴퓨터
-- 히사이시조
-- 니체
-- 도스토옙스키
-- 지브리만화
-- 영화감상
-- Dota2
-- 고전 소설
-- 한병철작가의 에세이
+- 언젠가 책한권 내는게 목표
 
 ## 내가 만든것들
 
