@@ -57,7 +57,9 @@ Uipath.IntelligentOCR.Activities를 설치하면 Studio의 리본메뉴에 Taxon
 
 문서 유형을 정하기 전에 그룹과 카테고리라는 계층 구조를 먼저 고민해야합니다.
 
-## Digitize
+## Digitization
+
+### Digitization 개요
 이미지로 부터 기계가 읽을 수 있는 문자들을 얻는 작업입니다.
 
 Digitization은 두가지 output이 있습니다.
@@ -65,10 +67,10 @@ Digitization은 두가지 output이 있습니다.
 - 문서로 부터 추출한 Text, String 자료형에 저장됩니다.
 - Document Object Model 문서에 관한 정보(이름, 내용, text 길이, 페이지수, 문서 회전각도, 글자의 위치..)를 답고 있는 json object 입니다.
 
-### Digitization을 하면 안돼는 것
+#### Digitization을 하면 안돼는 것
 OCR과 연관이 있지만 Digitization은 OCR이 아닙니다. 특히 이미 기계가 읽을 수 있는 양식인 native pdf 파일은 OCR을 하지 않아도 됩니다.
 
-### Dizitization에 OCR을 이용해야 할 떄
+#### Dizitization에 OCR을 이용해야 할 떄
 
  - 이미지 파일들
     - .png, .gif, .jpe, .jpg, .jpeg, .tiff, .tif, .bmp
@@ -168,16 +170,17 @@ Automation cloud의 api키를 이용하거나 on-prem일 경우 AI center의 Int
 
 검증작업을 사용한다면, 그 다음 작업은 모두 올바른 분류 정보를 이용할 수 있습니다.
 
-### 언제 사용하는가?
+#### 언제 사용하는가?
 
 - 100% 정확해야 하는 업무일때
 - 한 파일에 여러 문서 유형이 있을 때, 후에 DataExtraction을 진핼할 때 사용합니다. 서로 다른 문서유형의 dataExtraction을 피하기 위해서
 
-### 어떻게 사용하는가?
+#### 어떻게 사용하는가?
 
 - Attended인경우 Present Classification Station 액티비티 사용
 - Orchestrator Action Center를 이용하는 경우, Create Document Classifcation Action과 Wait for Document Classification Action And Resume 액티비티 사용
 
+Wait for Document Classification Action And Resume에서는 출력으로 "액션개체"와 "유효성이 검사된 분류 결과"만 있으면 됨
 ## Classification Station
 
 Classification Station wizard Orchestrator나 Stand-alone attended 모두 사용가능합니다.
@@ -190,5 +193,93 @@ Classification Station wizard Orchestrator나 Stand-alone attended 모두 사용
 - Document Object Model : Digitize Document 결과가 저장된 변수
 - Document Text : OCR을 실행한 결과 Text
 - Automatic Classifcation Result : 문서 유형 분류 결과가 저장된 변수
+
+## Document Classification Training
+
+### Document Classification Training 개요
+
+#### 언제 사용하는가?
+
+인간의 검증작업을 통해 로봇이 학습하고 더 좋은 결과를 낼 수 있습니다. Document Understanding Framework에 Traing 구성요소는 선택사항입니다. 다음과 같은 경우는
+
+- 분류기가 학습기능을 지원하지 않을때
+- 단지 사용자가 학습 기능을 사용하고 싶지 않을때
+- 학습 프로세스를 실행 프로세스와 분류하여 사용할때
+
+하지만 Uipath에서는 self-learning algorithm을 사용할 것을 적극권장합니다.
+
+#### 어떻게 사용하는가?
+
+Training은 반드시 사람의 feedback만 받습니다. 따라서 validation 작업 이후에 수행합니다. 실패한 분류, 성공한 분류 모두 가치있는 학습데이터입니다. Document Classify 단계에서 사용하지 않았던 분류기라도 나중에 사용하기 위해 학습을 시켜놓을 수 있습니다. **예외는 학습 불가**
+
+Uipath에서 제공하는 Trainer는 Keyword based Classifier Trainer, Intelligent Keyword Classifier Trainer 두가지 입니다.
+
+Wait for Document Classification Action And Resume의 출력으로는 Validated Classification Results만으로도 충분
+
+## Data Extraction
+
+### Data Extraction 개요
+
+문서에서 원하는 데이터만 추출할 수 있는 기능입니다. Taxonomy Manger로 지정한 Field만 데이터를 추출할 수 있습니다. 만약 한 파일안에 여러 종류의 문서가 있다면 각 문서 종류마다 Data Extraction이 한번씩 실행 됩니다.
+
+#### 어떻게 쓰는가?
+
+- 추출기 구성 설정을 한다.
+- 한개 이상의 추출기를 사용한다.
+
+Data Extraction Scope로 설정할 수 있는 것들
+
+- 각 추출기가 어떤 필드를 추출하는지
+- 각 추출기의 최소 신뢰도 지정
+- 각 필드마다 다른 추출기 지정가능
+- 설정한 신뢰도 이하의 결과인 경우 다음 추출기가 해당 필드의 데이터 추출
+- 추출기는 왼쪽 부터 실행
+
+#### 사용가능한 추출기
+
+- Regex Based Extractor
+- Form Extractor
+- Intelligent Form Extractor
+- Machine Learning Extractor
+
+### RegEx Based Extractor
+
+추출할 데이터가 항상 그자리 같은 형식인 경우 사용, 그러나 절대 비추한다. 심지어 Training도 할 수 없음
+
+### Form Extractor
+
+하나의 문서 유형에서 문서 구성(Layout)이 바뀌지 않을때 사용합니다. 따라서 하나의 템플릿을 기반으로 그와 동일한 방식의 문서들만 데이터를 추출할 수 있습니다.(이미지의 픽셀을 이용하여 추출)
+
+다음과 같은 경우 다른 추출기를 사용하는 것이 좋습니다.
+
+- 문서의 Layout이 아주 다양한 경우 (3,4개 이상)
+- 문서마다 사이즈, 기울기등 세세한 부분에서 차이가 많이 나는 경우
+
+### Intelligent Form Extractor
+
+이건 기본적으로 Form Extractor를 기본으로 만들어진 추출기 이다.
+
+다만 아래와 같은 기능이 추가 되있을뿐...
+
+- 손글씨 데이터 추출
+- signature detection
+
+쓸일이 있을까 싶다.
+
+### Machine Learning Extractor
+
+하나의 문서 유형에 여러가지 Layout이 존재할 때 반드시 사용합니다.
+
+이미지 픽셀이 50X50 이하인 경우 에러 발생
+
+#### Special Requirements
+
+- 데이터 추출을 위한 uipath document understanding endpoint
+- Automation Cloud AI center에 올라와 있는 AI 모델 필요
+- on-prem으로 호스팅 중인 AI center에 있는 AI모델을 쓸수 있지만 그래도 API키는 Automation Cloud에 있는것을 써야함
+
+#### 설정 방법
+설정 전에 AI Center에 대해 보고 오세요
+##### activity 설정
 
 > refernece : https://docs.uipath.com/document-understanding/docs/introduction
