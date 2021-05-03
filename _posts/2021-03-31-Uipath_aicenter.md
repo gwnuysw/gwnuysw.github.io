@@ -49,6 +49,7 @@ https://docs.uipath.com/document-understanding/docs/install-data-manager
 
 ### Configure Data Manager
 
+여기에 스키마가 있다 스키마 받아서 써야 학습이된다.
 https://docs.uipath.com/document-understanding/docs/configure-data-manager
 
 궁금하면 찾아보자 일단 스킵!
@@ -91,7 +92,19 @@ labeling에 지원하는 문서 종류는 .pdf, .tiff, .png, .jpg 파일입니�
 3. 학습용이면 'Make this a test set'체크 박스를 해제합니다.
 4. 테스트용이면 'Make this a test set'체크 박스를 체크합니다.
 5. 지원하는 파일을 업로드 합니다. zip파일도 가능합니다.
+#### Validation Station dataset import (미리보기 기능)
 
+프로세스 실행중 Data Extractino -> Human Validation을 거친 데이터를 다시 재학습 시킬 수 있습니다.
+
+재학습은 자동으로 이루어 지는 것이 아니라. Machine Learning Extractor Trainer로 생성된 OutputFolder를 다시 Data Manager로 입력해 주어야 합니다.
+
+과정은 다음과 같습니다.
+
+- ML Extractor Trainer가 생성한 폴더의 구성 : documents, metadata, predictions
+- 이 output 폴더를 zip파일로 압축합니다.
+- Data Manager에 zip파일을 import합니다.
+- 레이블링을 확인하고 다시 export합니다.
+- pipeline을통해 학습을 실행합니다.
 ## Adding and Configuration Fields
 Feild는 삭제나 수정이 불가능 하기 때문에 신중하게 설정해야 합니다. 다만 ML 모델에서 사용안할 feild는 숨김 처리 할 수 있습니다. 최대 40개 필드 까지 설정 가능합니다
 
@@ -197,3 +210,5 @@ pipeline이 Full 이나 Evaluation일때 output으로 "artifacts"폴더가 생�
 > reference :  https://docs.uipath.com/document-understanding/docs/ai-center-relation-to-du
 >
 > reference : https://docs.uipath.com/ai-fabric/v0/docs/about-ai-center
+>
+> reference : https://docs.uipath.com/ai-fabric/docs/ml-packages-examples

@@ -282,4 +282,47 @@ Data Extraction Scope로 설정할 수 있는 것들
 설정 전에 AI Center에 대해 보고 오세요
 ##### activity 설정
 
+Endpoint혹은 ML스킬 둘중에 하나만 써야한다.
+
+### Validation Station
+
+100% 정확한 데이터를 원할떄 validation을 합니다. vaildation을 꼭 하기를 추천합니다.
+문서 분류와 마찬가지로 추출데이터도 사람의 검증을 거칠 수 있습니다. Stand-alone Attended, Orchestrator/Action center 모두 사용가능합니다.
+
+- attended : Present Validation Scope
+- Orchestrator/Action center : Create Document Validation Action, Wait for Document Validation Action and Resume
+
+#### Requirements for Document Validation
+validation을 위해서는 다음과 같은 데이터가 필요합니다.
+
+- Taxonomy : taxonomy 단계에서 생성된 변수
+- Document Path : 문서 이미지 경로
+- Document Object Model : Digitization에서 생성된 변수
+- Document Text : Digitization에서 생성된 변수
+- Automation Extraction Result : Extract를 거쳐서 생성된 추출데이터
+
+
+### Data Extraction Training
+
+#### When Data Extraction Training Should Be Used
+
+다음의 경우를 제외하고는 재학습 시켜야 합니다.
+
+- Extractor(ML Package)가 retraining을 지원하지 않을 때.
+- 처리데이터를 재학습 시키고 싶지 않을떄(?? 즉 재학습은 선택사항이다.)
+- 재학습을 문서 처리과정 중에 하는 것이 아니라 따로 하고싶을 때
+
+#### How to Use the Data Extraction Training Component
+여러 extractor를 사용할때 trainer도 여러개 쓸수 있습니다. Human Validation 이후에 사용해야합니다.
+
+Data Extraction Scope에서 사용한 Extractor건, 사용하지 않았건, 모두다 재학습 가능합니다.
+
+Train Extractor가 하는 일
+- Trainer가 필요한 구성요소 제공
+- 한개 이상의 trainer 수용
+- 문서 타입과 필드 수준의 필터링, extractor 내부에서 이루어진 taxonomy와 project 수준에서 이루어진 taxonomy 매핑
+
+Train Extractor scope로 커스터마이징 가능한것들
+- 어떤 문서 유형과 필드를 train할것인지
+- 프로젝트 수준에서 이루어진 문서 유형 분류와 extractor 내부에서 이루어진 문서 유형 분류의 매핑
 > refernece : https://docs.uipath.com/document-understanding/docs/introduction
