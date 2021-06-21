@@ -41,19 +41,19 @@ https://products.aspose.app/words/ko/invoice
     - microsoft
     - google
     - omni
-- Document Understanding 대해
-  - Document Uunderstanding 설명
-  - 시중에서 서비스 중인 document ocr 기술
-    - abby
-    - 네이버 클로바 도큐먼트 ocr
-  - ~~약점~~
-    - ~~out of box schema 부재~~
-    - ~~validation의 한계~~
-      - ~~사실은 OCR의 성능 이상의 기능을 할 수 없다.~~
-    - ~~Extractino Retraining은 아직 preview 단계다~~
 - receipt 유형 1개 구조(structured) OCR 연습
   - tesseract와 image magick으로 연습
 - receipt, invoice 유형 다구조 문서 DU
+  - Document Understanding 대해
+    - Document Uunderstanding 설명
+    - 시중에서 서비스 중인 document ocr 기술
+      - abby
+      - 네이버 클로바 도큐먼트 ocr
+    - ~~약점~~
+      - ~~out of box schema 부재~~
+      - ~~validation의 한계~~
+        - ~~사실은 OCR의 성능 이상의 기능을 할 수 없다.~~
+      - ~~Extractino Retraining은 아직 preview 단계다~~
   - Document Understanding 진행 절차
   - Document Understanding 인프라
     - DU 프로세스 실행중 ai fabric을 사용하는 시점, Data Manager를 사용하는 시점
@@ -72,3 +72,13 @@ https://products.aspose.app/words/ko/invoice
       - Unattended
     - Export
     - 더 알아보기(custom model)
+
+# 참조
+
+https://tedium.co/2017/03/22/ocr-typography-optical-character-recognition-history/
+
+https://en.wikipedia.org/wiki/Timeline_of_optical_character_recognition
+
+https://docs.uipath.com/document-understanding/docs/public-endpoints
+
+https://imagemagick.org/script/command-line-options.php#deskew
