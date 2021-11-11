@@ -18,3 +18,18 @@ comments : true
 
 ## Meshes
 MeshPart는 physically-simulated object입니다. .fbx, .obj 형식으로 업로드가능합니다. image import하는 방식과 같은 방식으로 import 합니다.
+
+## Audio
+Roblox는 .mp3 .ogg 포맷을 지원합니다.
+
+## Models
+모델 매커니즘은 파트/오브젝트를 만들고 공유하는데유용합니다.
+
+## Animations
+캐릭터 애니메이션 역시 게임에 저장되거나 Roblox에 배포될 수 있습니다.
+
+##packages
+패키지를 이용하면 다른 게임을 만들 때에도 재사용 가능한 오브젝트를 만들 수 있습니다.
+
+##videos
+.webm 형식을 지원합니다. roblox 커뮤니티에서 제작된 비디오만 등록할 수 있습니다.
