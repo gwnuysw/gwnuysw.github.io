@@ -23,5 +23,14 @@ comments : true
 
 에이전트 기반 모델링은 에이전트, 환경, 에이전트-에이전트 및 에이전트-환경 상호 작용에 대한 설명을 사용하여 세계를 모델링할 수 있다는 아이디어입니다.
 
+## ABM Toolkits
+
+- [swarm](https://www.swarm.org/wiki/Main_Page)
+- [repast](https://repast.github.io/index.html)
+- [ascape](http://ascape.sourceforge.net/)
+- [mason](https://cs.gmu.edu/~eclab/projects/mason/)
+- [mass](http://mas.cs.umass.edu/research_old/mass/)
+- [breve](http://www.spiderland.org/s/)
+- [netlogo](https://ccl.northwestern.edu/netlogo/)
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/FVmQbfsOkGc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
