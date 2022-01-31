@@ -6,6 +6,7 @@ categories: jekyll update
 comments : true
 ---
 
+
 # 모델이란 무엇인가?
 
 > Essentially, all models are wrong, but some are useful
